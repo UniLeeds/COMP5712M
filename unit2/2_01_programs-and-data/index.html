@@ -1,0 +1,2237 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+    <meta name="author" content="Digital Education Service">
+
+
+    <link rel="icon" href="../../../img/favicon.jpg">
+    <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+
+
+
+    <title>1. The role of data in computer programming - Programming for Data Science</title>
+
+
+
+    <link rel="stylesheet" href="../../../assets/stylesheets/main.2d9f7617.min.css">
+
+
+    <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+        :root {
+            --md-text-font: "Inter";
+            --md-code-font: "Roboto Mono"
+        }
+    </style>
+
+
+
+    <link rel="stylesheet" href="../../../css/extra.css">
+
+    <script>
+        __md_scope = new URL("../../..", location), __md_get = (e, _ = localStorage, t = __md_scope) => JSON.parse(_.getItem(t.pathname + "." + e)), __md_set = (e, _, t = localStorage, a = __md_scope) => {
+            try {
+                t.setItem(a.pathname + "." + e, JSON.stringify(_))
+            } catch (e) {}
+        }
+    </script>
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+
+
+
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+
+
+        <a href="#the-role-of-data-in-computer-programming" class="md-skip">
+          Skip to content
+        </a>
+
+    </div>
+    <div data-md-component="announce">
+
+        <aside class="md-banner">
+            <div class="md-banner__inner md-grid md-typeset">
+
+                <div id="versionIndicator"><b>Version:</b> 14.09.22.b</div>
+                <img id="customlogo" src="../../../img/logo.svg" alt="University of Leeds logo.">
+
+            </div>
+        </aside>
+
+    </div>
+
+
+
+
+    <header class="md-header" data-md-component="header">
+        <nav class="md-header__inner md-grid" aria-label="Header">
+            <a href="../../.." title="Programming for Data Science" class="md-header__button md-logo" aria-label="Programming for Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+            <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+            <div class="md-header__title" data-md-component="header-title">
+                <div class="md-header__ellipsis">
+                    <div class="md-header__topic">
+                        <span class="md-ellipsis">
+            Programming for Data Science
+          </span>
+                    </div>
+                    <div class="md-header__topic" data-md-component="header-topic">
+                        <span class="md-ellipsis">
+            
+              1. The role of data in computer programming
+            
+          </span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+            <div class="md-search" data-md-component="search" role="dialog">
+                <label class="md-search__overlay" for="__search"></label>
+                <div class="md-search__inner" role="search">
+                    <form class="md-search__form" name="search">
+                        <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+                        <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+                        <nav class="md-search__options" aria-label="Search">
+
+                            <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+                        </nav>
+
+                    </form>
+                    <div class="md-search__output">
+                        <div class="md-search__scrollwrap" data-md-scrollfix>
+                            <div class="md-search-result" data-md-component="search-result">
+                                <div class="md-search-result__meta">
+                                    Initializing search
+                                </div>
+                                <ol class="md-search-result__list"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </nav>
+
+    </header>
+
+    <div class="md-container" data-md-component="container">
+
+
+
+
+
+        <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+            <div class="md-tabs__inner md-grid">
+                <ul class="md-tabs__list">
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../.." class="md-tabs__link">
+      Welcome
+    </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit1/1_01_history-of-programming/" class="md-tabs__link">
+        Unit 1
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="./" class="md-tabs__link md-tabs__link--active">
+        Unit 2
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit3/3_01_intro-to-data-analysis/" class="md-tabs__link">
+        Unit 3
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit4/4_01_data-analysis/" class="md-tabs__link">
+        Unit 4
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit5/5_00_unit-introduction/" class="md-tabs__link">
+        Unit 5
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit6/06_01_Possibilities_and_Challenges/" class="md-tabs__link">
+        Unit 6
+      </a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+
+
+
+                <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                    <div class="md-sidebar__scrollwrap">
+                        <div class="md-sidebar__inner">
+
+
+
+
+
+                            <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+                                <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programming for Data Science" class="md-nav__button md-logo" aria-label="Programming for Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Programming for Data Science
+  </label>
+
+                                <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item">
+                                        <a href="../../.." class="md-nav__link">
+        Welcome
+      </a>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_2">
+          Unit 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 1" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 1
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_01_history-of-programming/" class="md-nav__link">
+        1. History of programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_02_introduction-to-python/" class="md-nav__link">
+        2. Introduction to Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_03_introduction-to-jupyter-notebook/" class="md-nav__link">
+        3. Introduction to Jupyter Notebook
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_04_personal-log-activity/" class="md-nav__link">
+        4. Activity: Jupyter Notebook
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_05_basic-operations/" class="md-nav__link">
+        5. Basic operators in Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_2_6">
+          6. Basic data types in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="6. Basic data types in Python" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          6. Basic data types in Python
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_i_basic-data-types/" class="md-nav__link">
+        6a. Introduction: Basic data types in Python
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_ii_number-types/" class="md-nav__link">
+        6b. Number types
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_iii_strings/" class="md-nav__link">
+        6c. Strings
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_iv_booleans-and-logical-operators/" class="md-nav__link">
+        6d. Booleans and logical operators
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_v_the-none-type/" class="md-nav__link">
+        6e. The none type
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_07_basic-data-types-activity/" class="md-nav__link">
+        7. Activity: Basic data types
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_08_containers-and-complex-types/" class="md-nav__link">
+        8. Containers and complex types in Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_09_containers-and-complex-types-activity/" class="md-nav__link">
+        9. Activity: Container data types
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_2_10">
+          10. Control structures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="10. Control structures" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          10. Control structures
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_i_control-structures/" class="md-nav__link">
+        10a. Introduction: Control structures
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_ii_conditionals/" class="md-nav__link">
+        10b. Conditionals
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_iii_loops/" class="md-nav__link">
+        10c. Loops
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_iiii_list-comprehension/" class="md-nav__link">
+        10d. List Comprehension
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_11_control-structures-activity/" class="md-nav__link">
+        11. Activity: Control structures
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_12_unit-summary/" class="md-nav__link">
+        12. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_13_unit-references/" class="md-nav__link">
+        13. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_3">
+          Unit 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 2" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 2
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--active">
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+
+
+
+
+
+                                                    <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. The role of data in computer programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <a href="./" class="md-nav__link md-nav__link--active">
+        1. The role of data in computer programming
+      </a>
+
+
+
+                                                    <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+                                                        <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+                                                        <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#key-concepts" class="md-nav__link">
+    Key concepts
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#what-is-data" class="md-nav__link">
+    What is data?
+  </a>
+
+                                                                <nav class="md-nav" aria-label="What is data?">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#data-examples" class="md-nav__link">
+    Data examples
+  </a>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#representing-information-data-and-data-structures" class="md-nav__link">
+    Representing information: data and data structures
+  </a>
+
+                                                                <nav class="md-nav" aria-label="Representing information: data and data structures">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#csv-files" class="md-nav__link">
+    CSV files
+  </a>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#images" class="md-nav__link">
+    Images
+  </a>
+
+                                                                <nav class="md-nav" aria-label="Images">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#a-simple-image-processing-example-using-pil" class="md-nav__link">
+    A simple image processing example using PIL
+  </a>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#the-uses-of-data-in-computer-programs" class="md-nav__link">
+    The uses of data in computer programs
+  </a>
+
+                                                                <nav class="md-nav" aria-label="The uses of data in computer programs">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#external-input-data-vs-internal-program-data" class="md-nav__link">
+    External input data vs internal program data
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#data-and-algorithms" class="md-nav__link">
+    Data and algorithms
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#types-of-computation-and-application-involving-data" class="md-nav__link">
+    Types of computation and application involving data
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#application-example-a-medical-diagnosis-system" class="md-nav__link">
+    Application example: a medical diagnosis system
+  </a>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#lesson-complete" class="md-nav__link">
+    Lesson complete
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </nav>
+
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_02_functions/" class="md-nav__link">
+        2. Functions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_03_functions-activity/" class="md-nav__link">
+        3. Activity: Functions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_04_object-orientation/" class="md-nav__link">
+        4. Object-orientated programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_05_object-orientation-activity/" class="md-nav__link">
+        5. Activity: Object orientation
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_06_using-files/" class="md-nav__link">
+        6. Accessing and manipulating information in files
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_07_csv-files-activity/" class="md-nav__link">
+        7. Activity: Working with files
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_08_significance-of-data/" class="md-nav__link">
+        8. Data and data structures in computer programming and application development
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_09_unit-summary/" class="md-nav__link">
+        9. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../2_10_unit-references/" class="md-nav__link">
+        10. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_4">
+          Unit 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 3" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 3
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_01_intro-to-data-analysis/" class="md-nav__link">
+        1. Data transformation and analysis
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_02_data-transformations-activity/" class="md-nav__link">
+        2. Activity: Transforming data
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_03_data-quality/" class="md-nav__link">
+        3. Data quality
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_04_pandas/" class="md-nav__link">
+        4. Pandas
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_05_pandas-activity/" class="md-nav__link">
+        5. Activity: Pandas
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_06_unit-summary/" class="md-nav__link">
+        6. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_07_unit-references/" class="md-nav__link">
+        7. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_5">
+          Unit 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 4" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 4
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_01_data-analysis/" class="md-nav__link">
+        1. Data analysis
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_02_data-acquisition/" class="md-nav__link">
+        2. Data acquisition
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_03_data-resources/" class="md-nav__link">
+        3. Data resources
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_04_data-visualisation-matplotlib/" class="md-nav__link">
+        4. Introduction to matplotlib
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_05_frequency-distributions/" class="md-nav__link">
+        5. Frequency distributions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_06_matplotlib-exercises/" class="md-nav__link">
+        6. Matplotlib activity
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_5_7">
+          7. Data analysis examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="7. Data analysis examples" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          7. Data analysis examples
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_i_data-analysis-examples/" class="md-nav__link">
+        7a. Data analysis examples
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_ii_text-analysis/" class="md-nav__link">
+        7b. Text analysis
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_iii_maps-and-geographic-data/" class="md-nav__link">
+        7c. Maps and geographic data
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_iv_image-processing/" class="md-nav__link">
+        7d. Image processing
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_08_data-visualisation/" class="md-nav__link">
+        8. Data visualisation
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_09_unit-summary/" class="md-nav__link">
+        9. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_10_unit-references/" class="md-nav__link">
+        10. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_6">
+          Unit 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 5" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 5
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_00_unit-introduction/" class="md-nav__link">
+        1. Artificial intelligence
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_01_AI-intro/" class="md-nav__link">
+        2. What is AI?
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_02_AI-approaches/" class="md-nav__link">
+        3. AI approaches
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_03_search/" class="md-nav__link">
+        4. Activity: Search
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_04_adversarial-games/" class="md-nav__link">
+        5. Adversarial games
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_05_decision-trees/" class="md-nav__link">
+        6. Activity: Decision trees
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_06_unit-summary/" class="md-nav__link">
+        7. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_7">
+          Unit 6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 6" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 6
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_01_Possibilities_and_Challenges/" class="md-nav__link">
+        1. Possibilities and challenges
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_02_dangers-of-AI/" class="md-nav__link">
+        2. Dangers of AI
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_03_developing-your-skills/" class="md-nav__link">
+        3. Developing your skills
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_04_unit-summary/" class="md-nav__link">
+        4. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                    <div class="md-sidebar__scrollwrap">
+                        <div class="md-sidebar__inner">
+
+
+                            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+                                <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+                                <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+                                    <li class="md-nav__item">
+                                        <a href="#key-concepts" class="md-nav__link">
+    Key concepts
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#what-is-data" class="md-nav__link">
+    What is data?
+  </a>
+
+                                        <nav class="md-nav" aria-label="What is data?">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#data-examples" class="md-nav__link">
+    Data examples
+  </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#representing-information-data-and-data-structures" class="md-nav__link">
+    Representing information: data and data structures
+  </a>
+
+                                        <nav class="md-nav" aria-label="Representing information: data and data structures">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#csv-files" class="md-nav__link">
+    CSV files
+  </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#images" class="md-nav__link">
+    Images
+  </a>
+
+                                        <nav class="md-nav" aria-label="Images">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#a-simple-image-processing-example-using-pil" class="md-nav__link">
+    A simple image processing example using PIL
+  </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#the-uses-of-data-in-computer-programs" class="md-nav__link">
+    The uses of data in computer programs
+  </a>
+
+                                        <nav class="md-nav" aria-label="The uses of data in computer programs">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#external-input-data-vs-internal-program-data" class="md-nav__link">
+    External input data vs internal program data
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#data-and-algorithms" class="md-nav__link">
+    Data and algorithms
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#types-of-computation-and-application-involving-data" class="md-nav__link">
+    Types of computation and application involving data
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#application-example-a-medical-diagnosis-system" class="md-nav__link">
+    Application example: a medical diagnosis system
+  </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#lesson-complete" class="md-nav__link">
+    Lesson complete
+  </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+
+
+
+
+                        <h1 id="the-role-of-data-in-computer-programming">The role of data in computer programming<a class="headerlink" href="#the-role-of-data-in-computer-programming" title="Permanent link">&para;</a></h1>
+                        <p>In this lesson, you will identify and explore some fundamental concepts that underlie computer programming. Understanding these will enable you to give clear, high-level explanations of the way that programs work and help you to
+                            design and implement software in an effective way.
+                        </p>
+                        <p>The lesson will focus primarily on the concepts of <strong>data</strong> and <strong>data structure</strong>, and outline in general terms the role of data in algorithms, architecture and applications. Specific algorithms, architectures
+                            and applications will be introduced and explored in detail later in the module.</p>
+                        <div class="admonition success">
+                            <p class="admonition-title">Learning outcomes</p>
+                            <p>After completing this lesson you should be able to:</p>
+                            <ul>
+                                <li>
+                                    <p>describe software in terms of the key concepts of data, data structure, algorithm, architecture and application</p>
+                                </li>
+                                <li>
+                                    <p>give examples of the wide variety of data that is involved in computer applications</p>
+                                </li>
+                                <li>
+                                    <p>explain how data can be used to support various kinds of software functionality.</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <h2 id="key-concepts">Key concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
+                        <p>Below are definitions of some the key concepts in this lesson:</p>
+                        <ul>
+                            <li><strong>Data –</strong> information that is stored in some specific format.</li>
+                            <li><strong>Data Structure –</strong> a particular way of formatting or organising data.</li>
+                            <li><strong>Algorithm –</strong> a specification of a computational process.</li>
+                            <li><strong>Architecture –</strong> the overall structure of a computer program in terms of its component algorithms and data.</li>
+                            <li><strong>Application –</strong> a piece of software that provides one or more useful functions.
+                            </li>
+                        </ul>
+                        <p>These definitions are intentionally very general. They refer to aspects of computer programs and programming that are often highly interconnected. However, considering them as separate aspects can make it much easier to think about
+                            and design programs that can perform very complex tasks.</p>
+                        <h2 id="what-is-data">What is data?<a class="headerlink" href="#what-is-data" title="Permanent link">&para;</a></h2>
+                        <p>In science, the word <strong>data</strong> refers to information in the form of a set of measurements or records that have been collected for reference or analysis. This can be directly from measurement of the world or from other
+                            data sources.</p>
+                        <p>A computer program can only access and operate on information that is represented by some kind of structured format. It cannot determine meaning or the origin of the information it receives, except in so far as its meaning and
+                            origin may be encoded within that format. This is why, in computing, the word data can refer to any kind of information that is stored in some specific format, for which there is some convention for interpreting the information
+                            stored in that format.</p>
+                        <p>To be brief: <strong>data</strong> is any kind of information stored in a specific format.</p>
+                        <p>Nearly all computer programs involve some kind of data processing. But this data can vary greatly in its type, quantity, complexity; and there are a huge number of ways that a computer program can operate with data.</p>
+                        <h3 id="data-examples">Data examples<a class="headerlink" href="#data-examples" title="Permanent link">&para;</a></h3>
+                        <p>Data can be found in a large variety of forms. The following examples illustrate some of the kinds of data that you may deal with:</p>
+                        <ul>
+                            <li>3 numbers describing the size of a box in terms of height, width and depth</li>
+                            <li>a sequence of temperature measurements</li>
+                            <li>financial information (e.g. bank accounts)</li>
+                            <li>a database of information about employees of a company</li>
+                            <li>an inventory of products and stock held by a supermarket</li>
+                            <li>a 3D representation of a human body</li>
+                            <li>the text of a book</li>
+                            <li>audio data (e.g. in <code>mp3</code> or <code>flac</code> format)</li>
+                            <li>image data (e.g. photos in <code>jpeg</code> format)</li>
+                            <li>video data (e.g. in <code>mpeg</code> format)</li>
+                            <li>a large repository of URLs and textual data harvested from the web.</li>
+                        </ul>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>There are many other kinds of data. What other kinds of data can you think of? When you have thought of more examples, select the button below to see some possible answers.</p>
+                        </div>
+                        <details class="question">
+                            <summary>More answers</summary>
+                            <ul>
+                                <li>Map data</li>
+                                <li>Birth and death records</li>
+                                <li>Weather and climate data</li>
+                                <li>Exam results</li>
+                                <li>Stock market prices</li>
+                                <li>TV Schedules and viewing figures</li>
+                                <li>Sports results</li>
+                            </ul>
+                            <p>Do any of these kinds of data interest you? What kinds of data are you interested in? Let your fellow learners know about any other kinds of data you can think of, and any kinds that interest you personally in the discussion
+                                thread in Minerva. Access the thread for this topic by selecting the <strong>'Discussion'</strong> tab in the side navigation in Minerva and selecting the <strong>'What kinds of data can you think of?'</strong> thread for
+                                this lesson.</p>
+                        </details>
+                        <p><strong>Select the title above to find out more.</strong></p>
+                        <h2 id="representing-information-data-and-data-structures">Representing information: data and data structures<a class="headerlink" href="#representing-information-data-and-data-structures" title="Permanent link">&para;</a></h2>
+                        <p>Data is always encoded within some kind of representational system. This system enables us to interpret the data and give it meaning. The meaning of an item of data is often some fact about the world (for example the height of
+                            a building, or the birth date of a person) but it could also represent non-factual information such as a picture or sound, or an abstract mathematical object.</p>
+                        <p>Whatever is represented by data, it needs to be in a format for which there are specific conventions that define its meaning. At the lowest level of detail, nearly all information handled by computers is in the form of binary digits
+                            (0s and 1s), which are stored on an electronic medium or state. Using these as building blocks, formatting conventions are used to encode much more complex types of information. The following list gives the main types of data
+                            format in order of increasing structural complexity:</p>
+                        <ol>
+                            <li>Binary digits (<code>0</code>, <code>1</code>)</li>
+                            <li>Numbers, characters</li>
+                            <li>Sequences of numbers, strings (sequences of characters)</li>
+                            <li>Complex data structures: lists, dictionaries, sets, trees</li>
+                            <li>Structured data objects - CSV files; standard formats for images, video, audio, etc; structured objects defined by <em>classes</em>.</li>
+                        </ol>
+                        <p>The handling of numbers, characters, sequences and complex data structures in Python will be explored in following lessons. To illustrate the diverse ways in which data may be formatted there are two examples below: CSV files and
+                            images. You will see many other ways data can be formatted throughout the course.</p>
+                        <h3 id="csv-files">CSV files<a class="headerlink" href="#csv-files" title="Permanent link">&para;</a></h3>
+                        <!--
+<mark>**Comment FM: Is this section covering strings as mentioned in the course outline? From course outline: “In this lesson students are introduced to different types of data. Looking at some basic ones such as numbers, strings, lists and Booleans.” Where are lists and Booleans covered?**</mark>
+BB: Now this lesson has been moved to Unit 2 and those have already been covered in Unit 1.
+--->
+
+                        <p>CSV stands for <b>C</b>omma-<b>S</b>eparated <b>V</b>alues. The CSV file format provides a general and convenient way to store data, similar to a table or <strong>spreadsheet</strong>. In fact, the relation between spreadsheets
+                            and CSV files is so close that nearly all spreadsheet software (for example, Excel and Gnumeric) allows data to be both imported from and exported to CSV files.</p>
+                        <p>CSV files normally end in the extension <code>.csv</code>. Each line of the file represents a <strong>data record</strong>, which is a sequence of values, separated by commas.</p>
+                        <p>Here is an example of the first few lines of a file <code>pokemon.csv</code>:</p>
+                        <div class="highlight">
+                            <pre><span></span><code>#,Name,Type 1,Type 2,Total,HP,Attack,Defence,Sp. Atk,Sp. Def,Speed,Generation
+1,Bulbasaur,Grass,Poison,318,45,49,49,65,65,45,1
+2,Ivysaur,Grass,Poison,405,60,62,63,80,80,60,1
+3,Venusaur,Grass,Poison,525,80,82,83,100,100,80,1
+3,VenusaurMega Venusaur,Grass,Poison,625,80,100,123,122,120,80,1
+4,Charmander,Fire,,309,39,52,43,60,50,65,1
+5,Charmeleon,Fire,,405,58,64,58,80,65,80,1
+6,Charizard,Fire,Flying,534,78,84,78,109,85,100,1
+</code></pre>
+                        </div>
+                        <p>Here, as is often (but not always) the case, the first line is a <strong>header</strong> line. This is a comma separated sequence of <strong>headers</strong>, each of which gives a description of the type of data item in the column
+                            below.</p>
+                        <p>As in most CSV data files, each record (i.e. each line apart from the header) represents a group of data values that relate to a particular item, and each of these values represents a particular attribute of that item. Also each
+                            item has the same kinds of attribute in the same sequence (corresponding to the column headers). So, each record or line has a definite meaning (in this case giving the vital statistics of a species of cute imaginary creature).
+                            However, you should note that the CSV format itself does not specify how the contained information should be interpreted. The header line, if present, just associates certain characters with each column, which may or may not
+                            be informative to a programmer. Hence, when writing code that operates on data extracted from a CSV file, it is the responsibility of the programmer to ensure that the data is meaningful and is processed in a way that is appropriate
+                            to what it means.</p>
+                        <p>We shall later see many examples of information in CSV files, and will also see how this type of data can easily be read into and manipulated within Python (e.g. using <code>lists</code> or using the powerful <code>DataFrame</code>                            class provided by the <code>pandas</code> library).</p>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <ul>
+                                <li>The first column of the example <code>pokemon.csv</code> data file seems to be an ID number. But can you see something odd about it that might cause problems?</li>
+                                <li>What if some of the data you want to store in a CSV file contains commas? For example an address might contain commas. Can we use a CSV file to store such information?</li>
+                            </ul>
+                        </div>
+                        <details class="question">
+                            <summary>Answers</summary>
+                            <ul>
+                                <li>One of the ID numbers is repeated. If this is not corrected then this could lead to one of the rows with the repeated ID number being lost in some analysis, or misleading results if the two rows become mixed up.</li>
+                                <li>A CSV file can be used to store data that itself contains commas. Two ways to approach this are by quoting values, so that a comma within quote marks is not counted as a delimiter, or using an escape character to indicate
+                                    that the comma immediately following the escape character should not be understood as a delimiter.</li>
+                            </ul>
+                        </details>
+                        <p><strong>Select the title above to find out more.</strong></p>
+                        <div class="admonition note">
+                            <p class="admonition-title">Note on file extensions</p>
+                            <p>File extensions may be hidden by your file browsing tool. For example, Windows File Explorer does not show file extensions by default. It is possible to change this setting to show the extension, and you are recommended to
+                                do this, since it is often useful to see file extensions when programming. If you do not understand the term file extension (also known as filename extension), or how to change the default view setting, you can read more
+                                at the <a href="https://support.microsoft.com/en-gb/help/4479981/windows-10-common-file-name-extensions" target="_blank">Microsoft Support page</a>.</p>
+                        </div>
+                        <h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h2>
+                        <p>There are several different types of data format that are used to store and to display images.</p>
+                        <p>Each image is stored in a complex digital format that can be interpreted by software and rendered as screen pixels by sending corresponding streams of digits to a computer's GPU (Graphics Processing Unit). Many different formats
+                            are used for storing images, but some are much more common than others: GIF, JPEG and PNG are currently the most common.</p>
+                        <p>The image displayed on a computer screen is produced by sending a signal to its video display adapter that is generated from a special area of memory known as a <strong>Frame Buffer</strong>. The frame buffer stores a colour value
+                            for each pixel of the display in some binary form. From a simplified perspective of actual pixel colour encoding schemes, the colour of each screen pixel is represented by the magnitude of red, green and blue light to be emitted
+                            from the pixel (this is the well-known RGB colour encoding). Each of these magnitudes is then represented by a byte (corresponding to a number in the range 0-255).</p>
+                        <p>The ways in which an image is represented are complex, and vary both depending on whether the image is stored in a file or rendered to the screen via a frame buffer. High-level languages such as Python provide simpler ways of accessing
+                            and manipulating images. For example, the Python module PIL (Python Image Library) defines a class of image data objects which can be:</p>
+                        <ul>
+                            <li>created from or exported to image files of various formats</li>
+                            <li>displayed on the screen</li>
+                            <li>and modified (e.g. clipped, re-sized, rotated, etc) by means of convenient functions that can be executed within a Python program.</li>
+                        </ul>
+                        <figure>
+                            <img src="../images/yellow-smiley.png" alt="A yellow smiley face with its RGB data showing." width="80%" style="display: block; margin:auto;">
+                            <figcaption><strong>Figure 2.1:</strong> This image of a smiley yellow face is represented by a grid of pixels; and the colour of each pixel is specified by three numbers representing the proportions of red, green and blue that combine
+                                to make the colour.</figcaption>
+                        </figure>
+
+                        <h3 id="a-simple-image-processing-example-using-pil">A simple image processing example using PIL<a class="headerlink" href="#a-simple-image-processing-example-using-pil" title="Permanent link">&para;</a></h3>
+                        <p>The following example code illustrates how a very simple image processing operation can be accomplished in Python by means of the high-level functionality provided by the PIL library. The code reads in the image from the PNG file
+                            <code>images/yellow-smiley.png</code>, and replaces every yellow pixel in the image by a pink pixel. It then saves the result into the file <code>images/yellow-smiley.png</code>, as well as displaying the result using Jupyter's
+                            <code>display</code> function (which can be used to display a wide variety of kinds of output value in the output area of a Jupyter code cell).</p>
+                        <p>Note that the colour encoding used in PIL's representation of a pixel consists of a tuple of four values, <code>(R, G, B, A)</code>, which are each numbers in the range 0-255 and correspond to red, green, blue, and <strong>alpha</strong>                            values. The alpha value determines <strong>opacity</strong> of the pixel, with 0 being fully transparent and 255 being fully opaque.</p>
+                        <p>Don't worry if you do not fully understand this program. It should become clear once you know more about the Python language.</p>
+                        <p>
+                            <div class="highlight">
+                                <pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">smiley_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;images/yellow-smiley.png&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">pink</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">smiley_image</span><span class="o">.</span><span class="n">getpixel</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="n">yellow</span><span class="p">:</span>
+            <span class="n">smiley_image</span><span class="o">.</span><span class="n">putpixel</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">pink</span> <span class="p">)</span>
+
+<span class="n">smiley_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span> <span class="s2">&quot;images/pink-smiley.png&quot;</span> <span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span> <span class="n">image</span> <span class="p">)</span>
+</code></pre>
+                            </div>
+                            When run this will give the following output:</p>
+                        <figure>
+                            <img src="../images/pink-smiley.png" alt="A yellow smiley face with its RGB data showing." width="80%" style="display: block; margin:auto;">
+                            <figcaption><strong>Figure 2.2:</strong> Here we see that, by replacing the numbers representing yellow by numbers representing pink, we get a new smiley image where the face is now pink. Note that only the pure yellow coloured pixels
+                                have been identified and replaced.</figcaption>
+                        </figure>
+
+                        <div class="admonition note">
+                            <p class="admonition-title">Note on efficient image representation and encapsulation</p>
+                            <p>In real graphics cards, there will almost certainly be a compact encoding of colours in terms of a <strong>colour palette</strong>. This allows the colours displayed to be selected from a much larger set of possible colours.
+                                Most screen images will involve only a small subset of the possible colours. This allows all the required colours to be represented using a much smaller number of bits than would be required to represent every colour. So,
+                                less memory will be needed and the screen display can be updated more quickly.</p>
+                        </div>
+                        <p>A Python image data object may also make use of some form of compression to reduce the amount of memory required to store it in memory. But even if this is the case, it is still possible to access and manipulate the image object
+                            in a convenient way. The image can be accessed as if it were an array of pixels, each of which is located at an x, y coordinate and has a colour specified by R, G, B (and A) values. This illustrates the important concept of
+                            <strong>encapsulation</strong>.</p>
+                        <p><strong>Encapsulation</strong> is an important concept in computer programming. It arises from the idea that a component of a computer program should be usable without a programmer needing to know all the details of how it works.
+                            Although within the component may be a complex implementation, the programmer can use it by just passing it certain information (e.g. the arguments of a function call) and can rely on it computing results according to a specification
+                            of what it should do. Thus, the complex implementation is contained within (in other words 'encapsulated by' the component). This has several advantages. Perhaps most importantly, it reduces what the programmer needs to know
+                            and therefore makes programming easier. Another advantage is that it is possible to change the implementation of the component (perhaps to make it more efficient) without affecting other parts of the program that make use of
+                            that component. Encapsulation applies to data structures as well as to functions. A data-type may be represented in a complex and unintuitive format (perhaps because that enables it to be accessed and operated upon efficiently).
+                            But when accessing and manipulating the data it should appear to have a simple intuitive form. So the complexity is encapsulated within the implementation of the data type, rather than being allowed to affect the whole program.
+                            Encapsulation is related to <strong>modularity</strong>, which is the concept that the functionality of a computer program should be broken down into independent modules. Creating smaller and simpler pieces of functionality
+                            means that each one can be understood by a programmer more easily. The parts can then be used together like building blocks to create large, complex systems.</p>
+                        <h2 id="the-uses-of-data-in-computer-programs">The uses of data in computer programs<a class="headerlink" href="#the-uses-of-data-in-computer-programs" title="Permanent link">&para;</a></h2>
+                        <h3 id="external-input-data-vs-internal-program-data">External input data <em>vs</em> internal program data<a class="headerlink" href="#external-input-data-vs-internal-program-data" title="Permanent link">&para;</a></h3>
+                        <p>In many coding scenarios, data is derived from a source that is external to a computer program and is then read into and manipulated by the program. So, from the point of view of programming, data has both an external and an internal
+                            form.</p>
+                        <p>Programming languages provide a variety of <strong>input</strong> functions that allow data to be read into a program, either from streams of bytes, or, more commonly, from files. Later in the module, you will look at how Python
+                            enables data to be input from files, and how you can access and process various particular types of external data. For now, the module will assume that the data you want to work with has already been input to the program and
+                            is stored as internal program data.</p>
+                        <p>When considering the fundamentals of how a program manipulates its internal data, you don’t need to be concerned with what the data means, or how much of it there is. So, this part of the module will look at examples involving
+                            small amounts of very simple data, such as just a few numbers or words. Later, you will see that same programming techniques can be applied to analysing large sets of real data containing meaningful information about the world.</p>
+                        <p>You should also note that not all internal program data is derived from external data. Data is often created for book-keeping purposes, either to control algorithms or to help with the processing other data. In some cases, for
+                            example simulation programs, functionality may depend on processing large amounts of data that is all generated internally.</p>
+                        <h3 id="data-and-algorithms">Data and algorithms<a class="headerlink" href="#data-and-algorithms" title="Permanent link">&para;</a></h3>
+                        <p>As defined above, an algorithm is a specification of a computational process. Prior to the development of electronic computers, mathematicians specified algorithms by means of symbolic representations and rules for transforming
+                            sequences of symbols to give desired results. For example, you can multiply two numbers by writing them down as sequences of digits and then following a sequence of rules that manipulate these digits to obtain a new sequence
+                            of digits that represents the result of the multiplication.</p>
+                        <p>In the age of electronic computation, the most obvious way to specify an algorithm is by a computer program. Computer languages (such a Python) provide us with convenient symbolic systems to specify algorithms, in a form that can
+                            be automatically executed by computer hardware. An algorithm does not necessarily operate on any input data. For instance, one may define an algorithm to search for a solution to a mathematical problem (for example, what is
+                            the largest number whose cube is less than 10000). But nearly all algorithms output some kind of data as a result. However, most algorithms do operate on some kind of data: in some cases just a few numbers, in other cases a
+                            huge database of statistics, or a library of images.</p>
+                        <p>Typical algorithms will both operate on some input data and generate some output data. So, in a simplified view of computation, all data is either input data or output data. In this simplified view, algorithms would be sequences
+                            of computational steps that transform the input data into the desired output data.</p>
+                        <p>Although some kinds of simple computation do fit this simple picture, nearly all complex programs make use of data in a way that is highly interconnected and interwoven with algorithmic computations. Within a computation, data
+                            may be created to represent many intermediate forms between its input and output (for example, between the stages of a data processing pipeline). This could involve building complex structures, such as hash tables, networks
+                            and trees. Building these intermediate forms support complex processing operations. Many key algorithms of data analysis, artificial intelligence and machine learning are based upon special-purpose data structures that are
+                            generated and manipulated during their execution.</p>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>Can you think of any kinds of algorithm or software system that do not output any form of data?</p>
+                        </div>
+                        <details class="question">
+                            <summary>Possible Answers</summary>
+                            <ul>
+                                <li>A locking mechanism reads input signals and opens a door when a signal matches its stored codes.</li>
+                                <li>A garbage collection routine for memory management.</li>
+                            </ul>
+                        </details>
+                        <p><strong>Select the title above to find out more.</strong></p>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>Could there even be an algorithm that has neither input nor output but still does something its programmer intended?</p>
+                        </div>
+                        <details class="question">
+                            <summary>Possible Answers</summary>
+                            <p>Malicious software that is intended to consume computer resources such as processing power or memory does not require either input or output.</p>
+                        </details>
+                        <p><strong>Select the title above to find out more.</strong></p>
+                        <h3 id="types-of-computation-and-application-involving-data">Types of computation and application involving data<a class="headerlink" href="#types-of-computation-and-application-involving-data" title="Permanent link">&para;</a></h3>
+                        <p>The importance of data in computation is not only due to its variety of forms and the diversity of it’s content. Data’s importance also comes from the many different ways it can be put to use in algorithms, and the many kinds of
+                            applications it can support.</p>
+                        <p>Here are three of the main types of computation involving data, together with some typical examples:</p>
+                        <p><strong>1. Manipulating data to convert it into new forms</strong></p>
+                        <ul>
+                            <li>Converting input data (e.g. data in a file – perhaps compressed) into a form that is more easily operated on by a program</li>
+                            <li>Formatting an address, so it can be printed nicely on a label</li>
+                            <li>Converting a bibliographic database to a web-site</li>
+                            <li>Compressing text, audio or video, so it can be stored in a smaller file</li>
+                        </ul>
+                        <p><strong>2. Analysing data to extract useful new information</strong></p>
+                        <ul>
+                            <li>Calculating average life expectancy from birth and death dates of a population</li>
+                            <li>Finding the most powerful earthquake recorded in a dataset of seismic activity</li>
+                        </ul>
+                        <p><strong>3. Using data to enable some useful functionality</strong></p>
+                        <ul>
+                            <li>Finding the quickest route between two places on a map</li>
+                            <li>Diagnosing an illness</li>
+                        </ul>
+                        <p>Of course, these types of data-use are not completely separate. Many applications will involve both analysis and manipulation of data, as well as using it to support some functionality.</p>
+                        <h3 id="application-example-a-medical-diagnosis-system">Application example: a medical diagnosis system<a class="headerlink" href="#application-example-a-medical-diagnosis-system" title="Permanent link">&para;</a></h3>
+                        <p>Consider the example of a <strong>medical diagnosis system</strong> and the ways in which it may interact with and manipulate data:</p>
+                        <ul>
+                            <li>
+                                <p>The system might make use of many different forms of input data. Examples could include medical histories, blood test results, genetic information, blood pressure figures and X-ray images.</p>
+                            </li>
+                            <li>
+                                <p>It may perform a variety of transformations on data items. These could include combining data from different sources, converting between different types of record, calculating derived quantities or adjusting the scale and
+                                    orientation of images.</p>
+                            </li>
+                            <li>
+                                <p>It will carry out various forms of analysis, such as finding abnormal measurements, or changes over time. It could also detect unusual image features or identify correlations between different sets of data values. Based
+                                    on the results of its data manipulation and analysis, a medical diagnosis system could support several different functions, such as: diagnosing diseases, predicting outcomes of interventions, suggesting treatment and
+                                    identifying likely causes of illnesses.</p>
+                            </li>
+                        </ul>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>What kinds of data would you expect to be generated internally within a medical diagnosis system? When you have thought of some examples, select the button below to see more.</p>
+                        </div>
+                        <details class="question">
+                            <summary>Possible Answers</summary>
+                            <p>There are many forms of internal data that could be created. Some examples could include:</p>
+                            <ul>
+                                <li>Derived values such as BMI could be computed from known measurements.</li>
+                                <li>Data objects could be created that group together multiple pieces of information relating to each individual patient or course of treatment.</li>
+                                <li>Averages and frequencies of measurements over a population of patients could be computed.</li>
+                                <li>Possible paths through a treatment process could be generated in the form of trees or networks.</li>
+                                <li>Images could be scaled and rotated to standard sizes and orientations (for example, so that they can be compared to see the progress of a disease).</li>
+                            </ul>
+                        </details>
+                        <p><strong>Select the title above to find out more.</strong></p>
+                        <div class="admonition abstract">
+                            <p class="admonition-title">Exercise</p>
+                            <p>Consider the following examples of applications. For each:</p>
+                            <ul>
+                                <li>list the types of data that might be used or generated</li>
+                                <li>the types of computation that might operate on the data</li>
+                                <li>any internal forms of data that might be created within the application.</li>
+                            </ul>
+                            <p>The examples below are all complex kinds of software. There will be a lot of different types of data and operations that could be involved in such systems, so there is no need to make a comprehensive list. But it should be
+                                interesting to consider the possibilities.</p>
+                            <ul>
+                                <li>A route planning and navigation system (for example, Google Maps or something similar)</li>
+                                <li>Web-based software for selling and recommending books or other products (for example, something like Amazon)</li>
+                                <li>A system that simulates the interactions and population dynamics of plant and animal species in a natural environment.</li>
+                            </ul>
+                        </div>
+                        <h2 id="lesson-complete">Lesson complete<a class="headerlink" href="#lesson-complete" title="Permanent link">&para;</a></h2>
+                        <p>In this lesson, we have discussed how to describe software in terms of the key concepts of: data, data structure, algorithm, architecture and application. We have seen the wide variety of data that is involved in computer applications
+                            and how data can be used to support various kinds of software functionality.</p>
+                        <p>Most software and computer applications are complex and use a variety of data and algorithms. Encapsulation and modularity allow complex applications to be understood and maintained more easily.</p>
+                        <p>The first part of this unit shows how functions and classes are defined in Python. Both functions and classes provide ways to structure your code so that the functionality is broken down into smaller parts. Later in the unit we
+                            will look at how to load and use data from files, particularly focusing on structured data in csv files.</p>
+                        <p><strong>Select the next button to continue to the next lesson.</strong></p>
+
+
+                    </article>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="md-footer">
+
+            <nav class="md-footer__inner md-grid" aria-label="Footer">
+
+
+                <a href="../../unit1/1_13_unit-references/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 13. Unit references" rel="prev">
+                    <div class="md-footer__button md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+                    </div>
+                    <div class="md-footer__title">
+                        <div class="md-ellipsis">
+                            <span class="md-footer__direction">
+                Previous
+              </span> 13. Unit references
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a href="../2_02_functions/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Functions" rel="next">
+                    <div class="md-footer__title">
+                        <div class="md-ellipsis">
+                            <span class="md-footer__direction">
+                Next
+              </span> 2. Functions
+                        </div>
+                    </div>
+                    <div class="md-footer__button md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+                    </div>
+                </a>
+
+            </nav>
+
+            <div class="md-footer-meta md-typeset">
+                <div class="md-footer-meta__inner md-grid">
+                    <div class="md-copyright">
+
+                        <div class="md-copyright__highlight">
+                            Copyright © Digital Education Service | University of Leeds
+                        </div>
+
+
+                        Made with
+                        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+        <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">
+        {
+            "base": "../../..",
+            "features": ["navigation.tabs"],
+            "translations": {
+                "clipboard.copy": "Copy to clipboard",
+                "clipboard.copied": "Copied to clipboard",
+                "search.config.lang": "en",
+                "search.config.pipeline": "trimmer, stopWordFilter",
+                "search.config.separator": "[\\s\\-]+",
+                "search.placeholder": "Search",
+                "search.result.placeholder": "Type to start searching",
+                "search.result.none": "No matching documents",
+                "search.result.one": "1 matching document",
+                "search.result.other": "# matching documents",
+                "search.result.more.one": "1 more on this page",
+                "search.result.more.other": "# more on this page",
+                "search.result.term.missing": "Missing",
+                "select.version.title": "Select version"
+            },
+            "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"
+        }
+    </script>
+
+
+    <script src="../../../assets/javascripts/bundle.467223ff.min.js"></script>
+
+    <script src="../../../javascript/tablecontentsoverride.js"></script>
+
+    <script src="../../../javascript/config.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+</body>
+
+</html>

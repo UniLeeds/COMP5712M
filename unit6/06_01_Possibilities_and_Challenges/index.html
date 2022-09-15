@@ -1,0 +1,2425 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+    <meta name="author" content="Digital Education Service">
+
+
+    <link rel="icon" href="../../../img/favicon.jpg">
+    <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+
+
+
+    <title>1. Possibilities and challenges - Programming for Data Science</title>
+
+
+
+    <link rel="stylesheet" href="../../../assets/stylesheets/main.2d9f7617.min.css">
+
+
+    <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+        :root {
+            --md-text-font: "Inter";
+            --md-code-font: "Roboto Mono"
+        }
+    </style>
+
+
+
+    <link rel="stylesheet" href="../../../css/extra.css">
+
+    <script>
+        __md_scope = new URL("../../..", location), __md_get = (e, _ = localStorage, t = __md_scope) => JSON.parse(_.getItem(t.pathname + "." + e)), __md_set = (e, _, t = localStorage, a = __md_scope) => {
+            try {
+                t.setItem(a.pathname + "." + e, JSON.stringify(_))
+            } catch (e) {}
+        }
+    </script>
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+
+
+
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+
+
+        <a href="#possibilities-and-challenges" class="md-skip">
+          Skip to content
+        </a>
+
+    </div>
+    <div data-md-component="announce">
+
+        <aside class="md-banner">
+            <div class="md-banner__inner md-grid md-typeset">
+
+                <div id="versionIndicator"><b>Version:</b> 14.09.22.b</div>
+                <img id="customlogo" src="../../../img/logo.svg" alt="University of Leeds logo.">
+
+            </div>
+        </aside>
+
+    </div>
+
+
+
+
+    <header class="md-header" data-md-component="header">
+        <nav class="md-header__inner md-grid" aria-label="Header">
+            <a href="../../.." title="Programming for Data Science" class="md-header__button md-logo" aria-label="Programming for Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+            <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+            <div class="md-header__title" data-md-component="header-title">
+                <div class="md-header__ellipsis">
+                    <div class="md-header__topic">
+                        <span class="md-ellipsis">
+            Programming for Data Science
+          </span>
+                    </div>
+                    <div class="md-header__topic" data-md-component="header-topic">
+                        <span class="md-ellipsis">
+            
+              1. Possibilities and challenges
+            
+          </span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+            <div class="md-search" data-md-component="search" role="dialog">
+                <label class="md-search__overlay" for="__search"></label>
+                <div class="md-search__inner" role="search">
+                    <form class="md-search__form" name="search">
+                        <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+                        <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+                        <nav class="md-search__options" aria-label="Search">
+
+                            <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+                        </nav>
+
+                    </form>
+                    <div class="md-search__output">
+                        <div class="md-search__scrollwrap" data-md-scrollfix>
+                            <div class="md-search-result" data-md-component="search-result">
+                                <div class="md-search-result__meta">
+                                    Initializing search
+                                </div>
+                                <ol class="md-search-result__list"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </nav>
+
+    </header>
+
+    <div class="md-container" data-md-component="container">
+
+
+
+
+
+        <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+            <div class="md-tabs__inner md-grid">
+                <ul class="md-tabs__list">
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../.." class="md-tabs__link">
+      Welcome
+    </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit1/1_01_history-of-programming/" class="md-tabs__link">
+        Unit 1
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit2/2_01_programs-and-data/" class="md-tabs__link">
+        Unit 2
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit3/3_01_intro-to-data-analysis/" class="md-tabs__link">
+        Unit 3
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit4/4_01_data-analysis/" class="md-tabs__link">
+        Unit 4
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit5/5_00_unit-introduction/" class="md-tabs__link">
+        Unit 5
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="./" class="md-tabs__link md-tabs__link--active">
+        Unit 6
+      </a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+
+
+
+                <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                    <div class="md-sidebar__scrollwrap">
+                        <div class="md-sidebar__inner">
+
+
+
+
+
+                            <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+                                <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programming for Data Science" class="md-nav__button md-logo" aria-label="Programming for Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Programming for Data Science
+  </label>
+
+                                <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item">
+                                        <a href="../../.." class="md-nav__link">
+        Welcome
+      </a>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_2">
+          Unit 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 1" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 1
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_01_history-of-programming/" class="md-nav__link">
+        1. History of programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_02_introduction-to-python/" class="md-nav__link">
+        2. Introduction to Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_03_introduction-to-jupyter-notebook/" class="md-nav__link">
+        3. Introduction to Jupyter Notebook
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_04_personal-log-activity/" class="md-nav__link">
+        4. Activity: Jupyter Notebook
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_05_basic-operations/" class="md-nav__link">
+        5. Basic operators in Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_2_6">
+          6. Basic data types in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="6. Basic data types in Python" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          6. Basic data types in Python
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_i_basic-data-types/" class="md-nav__link">
+        6a. Introduction: Basic data types in Python
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_ii_number-types/" class="md-nav__link">
+        6b. Number types
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_iii_strings/" class="md-nav__link">
+        6c. Strings
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_iv_booleans-and-logical-operators/" class="md-nav__link">
+        6d. Booleans and logical operators
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_v_the-none-type/" class="md-nav__link">
+        6e. The none type
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_07_basic-data-types-activity/" class="md-nav__link">
+        7. Activity: Basic data types
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_08_containers-and-complex-types/" class="md-nav__link">
+        8. Containers and complex types in Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_09_containers-and-complex-types-activity/" class="md-nav__link">
+        9. Activity: Container data types
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_2_10">
+          10. Control structures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="10. Control structures" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          10. Control structures
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_i_control-structures/" class="md-nav__link">
+        10a. Introduction: Control structures
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_ii_conditionals/" class="md-nav__link">
+        10b. Conditionals
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_iii_loops/" class="md-nav__link">
+        10c. Loops
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_iiii_list-comprehension/" class="md-nav__link">
+        10d. List Comprehension
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_11_control-structures-activity/" class="md-nav__link">
+        11. Activity: Control structures
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_12_unit-summary/" class="md-nav__link">
+        12. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_13_unit-references/" class="md-nav__link">
+        13. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_3">
+          Unit 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 2" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 2
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_01_programs-and-data/" class="md-nav__link">
+        1. The role of data in computer programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_02_functions/" class="md-nav__link">
+        2. Functions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_03_functions-activity/" class="md-nav__link">
+        3. Activity: Functions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_04_object-orientation/" class="md-nav__link">
+        4. Object-orientated programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_05_object-orientation-activity/" class="md-nav__link">
+        5. Activity: Object orientation
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_06_using-files/" class="md-nav__link">
+        6. Accessing and manipulating information in files
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_07_csv-files-activity/" class="md-nav__link">
+        7. Activity: Working with files
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_08_significance-of-data/" class="md-nav__link">
+        8. Data and data structures in computer programming and application development
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_09_unit-summary/" class="md-nav__link">
+        9. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_10_unit-references/" class="md-nav__link">
+        10. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_4">
+          Unit 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 3" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 3
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_01_intro-to-data-analysis/" class="md-nav__link">
+        1. Data transformation and analysis
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_02_data-transformations-activity/" class="md-nav__link">
+        2. Activity: Transforming data
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_03_data-quality/" class="md-nav__link">
+        3. Data quality
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_04_pandas/" class="md-nav__link">
+        4. Pandas
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_05_pandas-activity/" class="md-nav__link">
+        5. Activity: Pandas
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_06_unit-summary/" class="md-nav__link">
+        6. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_07_unit-references/" class="md-nav__link">
+        7. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_5">
+          Unit 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 4" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 4
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_01_data-analysis/" class="md-nav__link">
+        1. Data analysis
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_02_data-acquisition/" class="md-nav__link">
+        2. Data acquisition
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_03_data-resources/" class="md-nav__link">
+        3. Data resources
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_04_data-visualisation-matplotlib/" class="md-nav__link">
+        4. Introduction to matplotlib
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_05_frequency-distributions/" class="md-nav__link">
+        5. Frequency distributions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_06_matplotlib-exercises/" class="md-nav__link">
+        6. Matplotlib activity
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_5_7">
+          7. Data analysis examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="7. Data analysis examples" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          7. Data analysis examples
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_i_data-analysis-examples/" class="md-nav__link">
+        7a. Data analysis examples
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_ii_text-analysis/" class="md-nav__link">
+        7b. Text analysis
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_iii_maps-and-geographic-data/" class="md-nav__link">
+        7c. Maps and geographic data
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit4/4_07_iv_image-processing/" class="md-nav__link">
+        7d. Image processing
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_08_data-visualisation/" class="md-nav__link">
+        8. Data visualisation
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_09_unit-summary/" class="md-nav__link">
+        9. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit4/4_10_unit-references/" class="md-nav__link">
+        10. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_6">
+          Unit 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 5" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 5
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_00_unit-introduction/" class="md-nav__link">
+        1. Artificial intelligence
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_01_AI-intro/" class="md-nav__link">
+        2. What is AI?
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_02_AI-approaches/" class="md-nav__link">
+        3. AI approaches
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_03_search/" class="md-nav__link">
+        4. Activity: Search
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_04_adversarial-games/" class="md-nav__link">
+        5. Adversarial games
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_05_decision-trees/" class="md-nav__link">
+        6. Activity: Decision trees
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_06_unit-summary/" class="md-nav__link">
+        7. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_7">
+          Unit 6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 6" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 6
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--active">
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+
+
+
+
+
+                                                    <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. Possibilities and challenges
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <a href="./" class="md-nav__link md-nav__link--active">
+        1. Possibilities and challenges
+      </a>
+
+
+
+                                                    <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+                                                        <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+                                                        <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#the-future-of-programming" class="md-nav__link">
+    The future of programming
+  </a>
+
+                                                                <nav class="md-nav" aria-label="The future of programming">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#abstraction" class="md-nav__link">
+    Abstraction
+  </a>
+
+                                                                            <nav class="md-nav" aria-label="Abstraction">
+                                                                                <ul class="md-nav__list">
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#virtualisation-and-cloud-computing" class="md-nav__link">
+    Virtualisation and cloud computing
+  </a>
+
+                                                                                    </li>
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#abstraction-from-physical-implementation-details" class="md-nav__link">
+    Abstraction from physical implementation details
+  </a>
+
+                                                                                    </li>
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#abstraction-from-specific-names-of-program-elements-and-components" class="md-nav__link">
+    Abstraction from specific names of program elements and components
+  </a>
+
+                                                                                    </li>
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#program-semantics" class="md-nav__link">
+    Program semantics
+  </a>
+
+                                                                                    </li>
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#declarative-coding" class="md-nav__link">
+    Declarative coding
+  </a>
+
+                                                                                    </li>
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#knowledge-based-programming" class="md-nav__link">
+    Knowledge-based programming
+  </a>
+
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </nav>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#modularity" class="md-nav__link">
+    Modularity
+  </a>
+
+                                                                            <nav class="md-nav" aria-label="Modularity">
+                                                                                <ul class="md-nav__list">
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#containerisation" class="md-nav__link">
+    Containerisation
+  </a>
+
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </nav>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#data-and-data-structures" class="md-nav__link">
+    Data and data structures
+  </a>
+
+                                                                            <nav class="md-nav" aria-label="Data and data structures">
+                                                                                <ul class="md-nav__list">
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#data-semantics-and-ontologies" class="md-nav__link">
+    Data semantics and ontologies
+  </a>
+
+                                                                                    </li>
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#data-driven-programming" class="md-nav__link">
+    Data driven programming
+  </a>
+
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </nav>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#promulgative-programming" class="md-nav__link">
+    Promulgative programming
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#automatic-coding-and-program-synthesis" class="md-nav__link">
+    Automatic coding and program synthesis
+  </a>
+
+                                                                            <nav class="md-nav" aria-label="Automatic coding and program synthesis">
+                                                                                <ul class="md-nav__list">
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#self-modifying-code" class="md-nav__link">
+    Self modifying code
+  </a>
+
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </nav>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#research-challenges-and-opportunities" class="md-nav__link">
+    Research challenges and opportunities
+  </a>
+
+                                                                <nav class="md-nav" aria-label="Research challenges and opportunities">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#natural-language-understanding" class="md-nav__link">
+    Natural language understanding
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#multi-scale-reactive-planning" class="md-nav__link">
+    Multi-scale reactive planning
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#automated-reasoning" class="md-nav__link">
+    Automated reasoning
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#synergies-between-symbolic-ai-and-ml" class="md-nav__link">
+    Synergies between symbolic AI and ML
+  </a>
+
+                                                                        </li>
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#quantum-computing" class="md-nav__link">
+    Quantum computing
+  </a>
+
+                                                                            <nav class="md-nav" aria-label="Quantum computing">
+                                                                                <ul class="md-nav__list">
+
+                                                                                    <li class="md-nav__item">
+                                                                                        <a href="#human-compatibility-issues" class="md-nav__link">
+    Human Compatibility Issues
+  </a>
+
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </nav>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#future-applications" class="md-nav__link">
+    Future Applications
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#lesson-complete" class="md-nav__link">
+    Lesson complete
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </nav>
+
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../06_02_dangers-of-AI/" class="md-nav__link">
+        2. Dangers of AI
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../06_03_developing-your-skills/" class="md-nav__link">
+        3. Developing your skills
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../06_04_unit-summary/" class="md-nav__link">
+        4. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                    <div class="md-sidebar__scrollwrap">
+                        <div class="md-sidebar__inner">
+
+
+                            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+                                <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+                                <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+                                    <li class="md-nav__item">
+                                        <a href="#the-future-of-programming" class="md-nav__link">
+    The future of programming
+  </a>
+
+                                        <nav class="md-nav" aria-label="The future of programming">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#abstraction" class="md-nav__link">
+    Abstraction
+  </a>
+
+                                                    <nav class="md-nav" aria-label="Abstraction">
+                                                        <ul class="md-nav__list">
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#virtualisation-and-cloud-computing" class="md-nav__link">
+    Virtualisation and cloud computing
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#abstraction-from-physical-implementation-details" class="md-nav__link">
+    Abstraction from physical implementation details
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#abstraction-from-specific-names-of-program-elements-and-components" class="md-nav__link">
+    Abstraction from specific names of program elements and components
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#program-semantics" class="md-nav__link">
+    Program semantics
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#declarative-coding" class="md-nav__link">
+    Declarative coding
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#knowledge-based-programming" class="md-nav__link">
+    Knowledge-based programming
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#modularity" class="md-nav__link">
+    Modularity
+  </a>
+
+                                                    <nav class="md-nav" aria-label="Modularity">
+                                                        <ul class="md-nav__list">
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#containerisation" class="md-nav__link">
+    Containerisation
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#data-and-data-structures" class="md-nav__link">
+    Data and data structures
+  </a>
+
+                                                    <nav class="md-nav" aria-label="Data and data structures">
+                                                        <ul class="md-nav__list">
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#data-semantics-and-ontologies" class="md-nav__link">
+    Data semantics and ontologies
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#data-driven-programming" class="md-nav__link">
+    Data driven programming
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#promulgative-programming" class="md-nav__link">
+    Promulgative programming
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#automatic-coding-and-program-synthesis" class="md-nav__link">
+    Automatic coding and program synthesis
+  </a>
+
+                                                    <nav class="md-nav" aria-label="Automatic coding and program synthesis">
+                                                        <ul class="md-nav__list">
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#self-modifying-code" class="md-nav__link">
+    Self modifying code
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#research-challenges-and-opportunities" class="md-nav__link">
+    Research challenges and opportunities
+  </a>
+
+                                        <nav class="md-nav" aria-label="Research challenges and opportunities">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#natural-language-understanding" class="md-nav__link">
+    Natural language understanding
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#multi-scale-reactive-planning" class="md-nav__link">
+    Multi-scale reactive planning
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#automated-reasoning" class="md-nav__link">
+    Automated reasoning
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#synergies-between-symbolic-ai-and-ml" class="md-nav__link">
+    Synergies between symbolic AI and ML
+  </a>
+
+                                                </li>
+
+                                                <li class="md-nav__item">
+                                                    <a href="#quantum-computing" class="md-nav__link">
+    Quantum computing
+  </a>
+
+                                                    <nav class="md-nav" aria-label="Quantum computing">
+                                                        <ul class="md-nav__list">
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#human-compatibility-issues" class="md-nav__link">
+    Human Compatibility Issues
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#future-applications" class="md-nav__link">
+    Future Applications
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#lesson-complete" class="md-nav__link">
+    Lesson complete
+  </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+
+
+
+
+                        <h1 id="possibilities-and-challenges">Possibilities and challenges<a class="headerlink" href="#possibilities-and-challenges" title="Permanent link">&para;</a></h1>
+                        <p>In this lesson we shall consider possible directions for future developments in computer programming language, research challenges whose solution could enable novel software technologies, and the kinds of new AI-based applications
+                            that we may expect to see.</p>
+                        <p>Obviously it is not easy to predict the future, so this lesson gives only a personal idea of what may be the significant developments in programming. However, the lesson mentions a wide range of possibilities and it is likely that
+                            some of these will turn out to be very important in the future of programming.</p>
+                        <div class="admonition success">
+                            <p class="admonition-title">Learning outcomes</p>
+                            <p>After completing this lesson you will be able to describe and give an overview of possible future developments in:</p>
+                            <ul>
+                                <li>programming languages</li>
+                                <li>software related research areas</li>
+                                <li>novel computing applications.</li>
+                            </ul>
+                        </div>
+                        <h2 id="the-future-of-programming">The future of programming<a class="headerlink" href="#the-future-of-programming" title="Permanent link">&para;</a></h2>
+                        <p>The nature of programming has changed rapidly over the past 50 years. Changes have mainly followed directions that relate to key features that have been found to increase ease of programming and reliability. These primarily come
+                            under the following headings:</p>
+                        <ul>
+                            <li>conceptual abstraction from low level details</li>
+                            <li>modularisation of program components</li>
+                            <li>increasing attention to data and data structures</li>
+                            <li>promulgation of non-algorithmic aspects of code.</li>
+                        </ul>
+                        <h3 id="abstraction">Abstraction<a class="headerlink" href="#abstraction" title="Permanent link">&para;</a></h3>
+                        <p>Abstraction in the way we program has come a long way since the original programs that were coded directly in the machine instructions that are processed by the <a href="https://en.wikipedia.org/wiki/Central_processing_unit">CPU</a>                            devices of computers. Here are a couple of ideas of how abstraction could be taken even further.</p>
+                        <h5 id="virtualisation-and-cloud-computing">Virtualisation and cloud computing<a class="headerlink" href="#virtualisation-and-cloud-computing" title="Permanent link">&para;</a></h5>
+                        <p>Modern computing is dominated by distributed services for which information storage and computational resources are provided by
+                            <a href="https://en.wikipedia.org/wiki/Cloud_storage"><em>the cloud</em></a> and <a href="https://en.wikipedia.org/wiki/Cloud_computing">cloud computing</a> resources.
+                        </p>
+                        <p>Virtualisation is the process of creating a virtual version of something. You may think that virtualisation involves an abstraction away from physical implementation details. This is true from a hardware perspective: a specific
+                            physical computational device has been replaced by a program or collection of programs, which has the same computational functionality as the physical computer.</p>
+                        <p>However, from a programming point of view, virtualisation is almost the opposite of abstraction. In writing a program to run on a virtual machine in the cloud we write code as if it is running on conventional hardware (for example,
+                            we load and save files in the same way as we would when they are stored on our local hard drive).</p>
+                        <p>These files may only exist within the memory of a remote machine or the file content could be distributed between different segments of memory (or disk on many different machines). So how would we abstract away from physical implementation
+                            details from a programming point of view?</p>
+                        <h5 id="abstraction-from-physical-implementation-details">Abstraction from physical implementation details<a class="headerlink" href="#abstraction-from-physical-implementation-details" title="Permanent link">&para;</a></h5>
+                        <p>Traditional programming languages are built upon a conception of programming that is tightly bound to the particular physical objects and mechanisms that support the information processing capability of computers. This is why we
+                            normally think of data in terms of storage devices (ROM and RAM), files, records, text strings, etc.; and we consider computation in terms in terms of complex procedures for manipulating symbols by means of a specific predetermined
+                            sequence of steps.</p>
+                        <p>However, when we consider computational processing purely in terms of information and possible transformations we may apply to it, the particular details of storage are irrelevant. Whether information is stored in a file, or in
+                            memory in the form of some data structure, the transformations or extractions that may be applied to it are essentially the same (though of course it is usually faster to transform data in memory than on disc, and to keep data
+                            safe it is wise to store it on disc, rather that in memory).</p>
+                        <p>In fact, modern computer architectures already blur the differences between, say, a file and a data structure stored in memory. As mentioned above, what may appear to a programmer as a file often exists only in memory as part of
+                            the data structure used to represent a virtual machine. And conversely, what appears to be a data structure may actually be stored on disk (as when <a href="https://www.geeksforgeeks.org/swap-space-in-operating-system/"><em>swap space</em></a>                            is used).</p>
+                        <p>In the future, programming languages may treat data storage in a much more abstract and general way. Instead of writing code instructions to save data to a file, we would simply specify that the data should be stored in a persistent
+                            way, so it would still be available after our program had finished, and perhaps also that it should be made available to other programs (e.g. via a <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI</a>).
+                            Instead of loading data from a file into memory, we would just declare that we want rapid access to a certain data object (which again might be specified by a URI). </p>
+                        <h5 id="abstraction-from-specific-names-of-program-elements-and-components">Abstraction from specific names of program elements and components<a class="headerlink" href="#abstraction-from-specific-names-of-program-elements-and-components" title="Permanent link">&para;</a></h5>
+                        <p>From the point of view of computer program execution the specific names of variables, functions, classes, modules, packages, files etc. are arbitrary. They just provide means of establishing a connection between a place in a program
+                            where a certain symbol string (for example, a variable name) is used and some location in memory or on disc where the the referent information object is stored.</p>
+                        <p>To produce reliable and adaptable computer programs, you should abstract away from specific details to produce a more general solution. However, in assigning names to functions, classes and files, we associate specific sequences
+                            of symbols to refer to these objects. With small programs this is not usually a problem. However, as systems become larger, languages incorporate more and more built-in functions and large numbers of modules and packages are
+                            available for use, a programmer has to be aware of of a huge number of different names for both functional components and data objects.</p>
+                        <p>In recent years there has been a massive growth in online documentation, and systems that organise and maintain this in a semi-automatic way have been developed (for example, websites such as <a href="https://docs.python.org/">docs.python.org</a>).
+                            But it can be difficult to find what you are looking for unless you already know its name. For instance how would you know that a function that would be useful for you is in a package called
+                            <code>pandas</code> or <code>numpy</code> or <code>cv2</code>, unless you already know the names of those packages and the kinds of functionality they support?</p>
+                        <p>Ideally we would like to access program elements by means of a general method of organisation, not just by using specific names. It is currently unclear how this would be achieved. However, the idea of program semantics, and the
+                            more established ideas regarding data semantics may provide a basis by which we can organise program elements primarily in terms of their meaning, rather than the names that programmers give to them.</p>
+                        <h5 id="program-semantics">Program semantics<a class="headerlink" href="#program-semantics" title="Permanent link">&para;</a></h5>
+                        <p><em>Semantics</em> is the study of <em>meaning</em> and how we can describe and classify meanings. Originally, programming languages were treated as primarily <em>syntactic</em> objects, that is sequences of symbols. However, those
+                            symbols do have a meaning in terms of what happens when they are executed. As programming languages have developed into much more structured forms, categorisations of data types and components such as functions, classes, methods,
+                            modules, packages etc. bring out semantic structures and relationships among program elements. It is likely that this kind of structuring will be further developed so that more aspects of the meanings of functions and classes
+                            will be made explicit. This may enable the organisation of programs to be more comprehensible, and provide a way to reduce the problem of dealing large numbers of disorganised names of program components that was highlighted
+                            in the previous section.</p>
+                        <h5 id="declarative-coding">Declarative coding<a class="headerlink" href="#declarative-coding" title="Permanent link">&para;</a></h5>
+                        <p>In various previous lessons <em>declarative</em> programming languages were mentioned. The main advantage of a declarative approach is that it can improve intelligibility. It can be regarded as a form of abstraction in that the
+                            declarative parts of a program need not specify how that declared information is to be used, and the parts of the program that use the declared information, do so in a general way that does not depend on the specific details
+                            of the data. This can be a very powerful way of programming and is likely to become more prevalent.</p>
+                        <h5 id="knowledge-based-programming">Knowledge-based programming<a class="headerlink" href="#knowledge-based-programming" title="Permanent link">&para;</a></h5>
+                        <p>Moving further into the future, it may be that rather than coding algorithms (or specific declarative information) to solve a specific problem, you could represent knowledge in a general way that could be flexibly applied to solve
+                            a variety of problems. So instead of coding a program to implement particular functions, you would create a knowledge base. The knowledge base could could then be used for a variety of purposes, by means of a wide range of
+                            queries or requests that can be answered or obeyed by the system.</p>
+                        <p>In fact this kind of functionality already exists in some forms. For example when we use a Web search engine such as Google search, we are using the Web as a knowledge base and getting information back that is related to our query.
+                            However, this kind of querying does not use genuine knowledge about the content of the Web; the search engine mainly just matches words in the query with words in documents on the web (though actually more and more semantic
+                            information is being used by Google to control the way their search engine works).</p>
+                        <p>Another way in which much more fully fledged knowledge-based programming can be implemented is by using a
+                            <a href="https://en.wikipedia.org/wiki/Logic_programming">logic programming</a> language such as
+                            <a href="https://en.wikipedia.org/wiki/Prolog">Prolog</a> (e.g. <a href="https://www.swi-prolog.org/">SWI Prolog</a>). A Prolog program can act as a knowledge base and can answer queries by means of logical inference, so largely
+                            fulfils the aspiration of knowledge-based programming. However, representing large amounts of knowledge in Prolog involves several difficulties:</p>
+                        <ul>
+                            <li>coding knowledge in a comprehensive and consistent way is a large and intricate task</li>
+                            <li>Prolog programming is often error prone, unless the programmer has a sound grasp of how the language works</li>
+                            <li>debugging can be difficult</li>
+                            <li>query answering can be very inefficient unless the code has been very carefully designed</li>
+                            <li>and efficiency can vary greatly according to the particular types of query that the program is given to evaluate.</li>
+                        </ul>
+                        <h3 id="modularity">Modularity<a class="headerlink" href="#modularity" title="Permanent link">&para;</a></h3>
+                        <p>As has been emphasised in several lessons of earlier units, modularity is a key concept in programming, which greatly facilitates the construction of large reliable systems. Modularity is also closely associated with encapsulation
+                            and with portability. In recent years the most significant development connected to these attributes is probably <em>containerisation</em>.</p>
+                        <h5 id="containerisation">Containerisation<a class="headerlink" href="#containerisation" title="Permanent link">&para;</a></h5>
+                        <p>The idea of a <em>container</em> and <em>containerisation</em> has become very significant recently, especially in relation to cloud computing. (Note that in Python the word 'container' is used to mean a type of object that can
+                            contain other object. Here we are talking about something different.) The two best known container technologies at the moment are
+                            <a href="https://sylabs.io/singularity/">Singularity</a> and <a href="https://www.docker.com/">Docker</a>. The Docker website defines the concept of a container as follows:</p>
+                        <p><em>"A container is a standard unit of software that packages up code and all
+ its dependencies so the application runs quickly and reliably from one
+computing environment to another. A Docker container image is a
+lightweight, standalone, executable package of software that includes
+everything needed to run an application: code, runtime, system tools,
+system libraries and settings."</em> (from <a href="https://www.docker.com/resources/what-container">docker.com</a>)</p>
+                        <p>Probably the main reason to use containers is for <em>portability</em>. Code that depends on being run with a particular operating system system set-up because it makes use of a variety of other software components within that
+                            system can be packaged up into a single container unit, which can be transported to another system and will still run. The Docker documentation describes their containers as 'lightweight' but a docker image could easily be
+                            more than 1GB in size, so not exactly featherweight. However, 1GB is probably a lot smaller than the size of the whole file system that we would use to crate the software (which could be hundreds of GB).</p>
+                        <p>Containers can also be regarded as providing a form of
+                            <em>encapsulation</em> and they can also be used as modular units within larger systems. For instance the <a href="https://kubernetes.io/">Kubernetes</a> system provides a mechanism for <em>orchestrating</em> software services
+                            that involve multiple containerised applications.</p>
+                        <h3 id="data-and-data-structures">Data and data structures<a class="headerlink" href="#data-and-data-structures" title="Permanent link">&para;</a></h3>
+                        <p>Recall the quote from <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> that we saw way back in Unit 2, in the lesson on the
+                            <strong>Significance of Data in Computation</strong>:</p>
+                        <p><em>"I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships."</em><br>                            (Linus Torvalds, 2006-08-28, <a href="http://lwn.net/Articles/193245/">Message to Git mailing list</a>)</p>
+                        <p>Hopefully the content of this module has demonstrated good reasons to believe that Linus is largely right (though I would say that there are also situations where good programmers will worry about algorithms). We can expect that
+                            data and data structures will always play a significant role in programming; and, as long as programmers seek to develop new kinds of software, they will also create new forms of data structure. New kinds of data will require
+                            new data structures for their representation and new algorithms will make use of new data structures in their implementation.</p>
+                        <h5 id="data-semantics-and-ontologies">Data semantics and ontologies<a class="headerlink" href="#data-semantics-and-ontologies" title="Permanent link">&para;</a></h5>
+                        <p>One type of data that is increasingly seen as important is <em>meta data</em>, or in other words data that specifies information about data. As systems deal with data that is more and more diverse and is integrated from many sources
+                            there is a need to keep track of what data means and where it comes from. The field of
+                            <a href="https://en.wikipedia.org/wiki/Semantic_technology">Semantic Technology</a> deals with methods for representing and manipulating information about the meaning of data and for using this information to support various
+                            kinds of application. There are two kinds of situation in which this is useful (often these occur together):</p>
+                        <ul>
+                            <li>
+                                <p>You have complex data of many types and want to develop an application that can make use of interconnections between different data types. <br>For example, we may want to write software for managing a website and business
+                                    procedure for a company selling many different kinds of products to a variety of customers. Both the products and customers may have many attributes and we need to ensure that complex conditions are satisfied to match
+                                    customer requirements to product features.</p>
+                            </li>
+                            <li>
+                                <p>You need to combine data from several different sources.<br> For example we may want to integrate environmental data from many different countries to carry out a global analysis of some environmental conditions.</p>
+                            </li>
+                        </ul>
+                        <p>Precise specification of the semantics of a vocabulary of conceptual terms can be represented by means of logical languages. A specification of this kind is known as an
+                            <strong><a href="https://en.wikipedia.org/wiki/Ontology_(information_science" target="_blank">ontology</a></strong>. Various representations have been developed for computational representation of semantic information, such
+                            as
+                            <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> and
+                            <a href="https://en.wikipedia.org/wiki/Web_Ontology_Language">OWL</a> as well as tools for editing ontologies such as
+                            <a href="https://protege.stanford.edu/">Protege</a> and mechanisms for querying data that is associated with an ontology specification, such as
+                            <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL</a>.</p>
+                        <h5 id="data-driven-programming">Data driven programming<a class="headerlink" href="#data-driven-programming" title="Permanent link">&para;</a></h5>
+                        <p>In many of the preceding lessons of this module we have seen that data can play a significant role in programming, not only in being an input that programs operate upon to produce output, but also in supporting and shaping the
+                            functionality that programs deliver. As we have seen, the field of Data Science is continually developing new ways to extract information from data and Machine Learning explores ways to use data to achieve functionality that
+                            we would be unable to accomplish by direct programming.</p>
+                        <p>For a very interesting exploration of the possibilities opened up by using data a a driving force for computer applications you are recommended to watch the following video of a lecture by
+                            <a href="https://norvig.com/">Peter Norvig</a> (who is a co-author of the leading AI textbook
+                            <a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach</a> and a director of research at Google:</p>
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=yvDCzhbjYWs">The Unreasonable Effectiveness of Data</a><br></li>
+                        </ul>
+                        <h3 id="promulgative-programming">Promulgative programming<a class="headerlink" href="#promulgative-programming" title="Permanent link">&para;</a></h3>
+                        <p>To <em>promulgate</em> an idea is to make it widely known by communicating it to anyone for whom it may be relevant. Traditionally, programming has focussed on constructing functions that produce some output from some input or
+                            starting state. However, many other auxiliary programming related features and tools have arisen that are more about communicating the status, purpose and usage of code rather than defining the actual code functionality. Such
+                            features range from those directly related to an algorithm's function, such as exception handling (e.g. Python's <code>try</code> and <code>except</code>), self verification (<code>assert</code>) and execution timing functions,
+                            to features related to usage and maintenance, such as automatic documentation (e.g. via docstrings),
+                            <a href="https://en.wikipedia.org/wiki/API">API</a> specifications and version control (<code>git</code>), as well as including more socially oriented features relating to programming communities (<code>github</code>, <code>Kaggle</code>)
+                            and program distribution (<code>pip</code>, <code>conda</code>).</p>
+                        <p>Such features have proved to be very useful and are increasingly popular. However, they form a very disparate collection of coding conventions and tools that each require separate investigation and investment of effort by programmers
+                            before they can make use of them. It is likely that promulgation will become increasingly recognised as a key aspect of programming, and general frameworks for unifying different promulgation mechanisms will be designed. I
+                            predict that in the future full-blown <em>promulgation languages</em> will be developed and will operate as wrappers around conventional code components. These will support a wide range of <em>meta</em> functionalities relating
+                            to code development and usage. Ultimately it may be possible to create programs purely by promulgating specifications, requests and even payment offers, for required functionality: the actual algorithmic code would then be
+                            obtained automatically from remote sources. Conversely, programmers who are interested in supplying or writing algorithms could promulgate details of what they can provide and be automatically paid for fulfilling requirements
+                            of other system developers.</p>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>Why is there no Wikipedia page on <em>promulgative programming</em> ?</p>
+                        </div>
+                        <details class="question">
+                            <summary>Answer</summary>
+                            <p>The term <em>promulgative programming</em> does not exist. Brandon made up the word <em>promulgative</em>. Judge for yourself whether it is a useful concept.</p>
+                            <p>All programming language features begin with general ideas about what might be useful for creating programs. These can eventually evolve into specific commands and code structures.</p>
+                            <p>Can you think of an idea of you own that might be a useful feature in a programming language of the future?</p>
+                        </details>
+                        <h3 id="automatic-coding-and-program-synthesis">Automatic coding and program synthesis<a class="headerlink" href="#automatic-coding-and-program-synthesis" title="Permanent link">&para;</a></h3>
+                        <p>Now we look at a possibility that may put programmers out of a job.</p>
+                        <p>The past was once the future; so, to form a view of the future, it may be revealing to survey the past. There is no more entertaining way to gain insight into the early development and popularisation of computing than by flicking
+                            though magazines such as <a href="https://books.google.com.au/books?id=3j4EAAAAMBAJ">InfoWorld</a>. In the issue from <a href="https://books.google.com.au/books?id=3j4EAAAAMBAJ&amp;printsec=frontcover">May 25, 1981</a> on pages
+                            1, 7 and 60 you will see references to <strong>The Last One</strong>, a new software product produced by a British company called <em>D.J. "AI" Systems</em>, which is described on page 1 as <em>"one of the most significant software products ever created"</em>.
+                            Judging from its very brief <a href="https://en.wikipedia.org/wiki/The_Last_One_(software)" target="_blank">Wikipedia article</a>, The Last One did not quite live up to its hype. Nevertheless, the idea behind it was interesting,
+                            and seemed to have great potential. The goal of The Last one is described as <em>"to give the computer all the low-level chores involved in coding and debugging programs, thus leaving to people only the general design of the software"</em>.</p>
+                        <p>The idea that code could be created automatically (or at least-semi automatically) is certainly attractive. One can imagine that this would lead to much quicker program development, perhaps more reliable programs, and could possibly
+                            enable one to develop software that would be too complex for human coders to develop without some automated help.</p>
+                        <p>Automated coding can actually take many forms, ranging from simple <em>autocompletion</em> of variable and function names to fully automatic creation of a program from a natural language description, or from a set of sample inputs
+                            and outputs. The general aim of <a href="https://en.wikipedia.org/wiki/Automatic_programming">automatic programming</a> has actually led to several different research fields being explored, including the following:</p>
+                        <ul>
+                            <li><a href="https://en.wikipedia.org/wiki/Program_synthesis">Program Synthesis</a></li>
+                            <li><a href="https://web.media.mit.edu/~lieber/PBE/">Programming by Example</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Inductive_programming">Inductive Programming</a></li>
+                        </ul>
+                        <p>The prospects for automatic programming are uncertain. Some take the view that it is impractical or even impossible because of the many technical challenges it presents; and that more traditional programming ideas, such as modularisation
+                            and abstraction, provide a more realistic route to achieving quicker, more reliable and more advanced software development.</p>
+                        <h5 id="self-modifying-code">Self modifying code<a class="headerlink" href="#self-modifying-code" title="Permanent link">&para;</a></h5>
+                        <p>Closely related to automatic coding, is the idea that a computer program could modify its own code. This is not allowed by the
+                            <a href="https://en.wikipedia.org/wiki/Von_Neumann_architecture#Self-modifying_code">Von Neumann Architecture</a>, which keeps programs and data separate, but is possible with nearly all modern computers, in which the same
+                            memory is used to store programs and the data operated on by programs (thus they can potentially change their code in much the same way that they operate on data). In Python is easy to write code that modifies itself (for example,
+                            by creating strings representing function definitions and executing them using the <code>eval</code> command). The problem is that it is very difficult to do this in a way that would not cause unpredictable behaviour and program
+                            crashes.</p>
+                        <p>Many types of program do in fact modify their code in a limited way. An example of this is <em>genetic algorithms</em>, and most other ML algorithms that use <em>training</em> or <em>reinforcement</em> can be regarded as self modifying.
+                            However, these types of algorithms have a main control system that is not modified. I believe that there are no examples of programs that can modify any part of their own code that have been successful in achieving useful functionality.
+                        </p>
+                        <p>Some have suggested that AI systems can become <em>super-intelligent</em> by modifying their own code. We will consider this possibility later in this Unit in the lesson on <strong>Dangers of AI</strong>.</p>
+                        <h2 id="research-challenges-and-opportunities">Research challenges and opportunities<a class="headerlink" href="#research-challenges-and-opportunities" title="Permanent link">&para;</a></h2>
+                        <p>Clearly there are many difficult problems that will need to be overcome for the development of new software capabilities and novel applications. Here we shall just look at a few that seem particularly significant and challenging.</p>
+                        <h3 id="natural-language-understanding">Natural language understanding<a class="headerlink" href="#natural-language-understanding" title="Permanent link">&para;</a></h3>
+                        <p>The problem of natural language understanding is generally regarded as <a href="https://en.wikipedia.org/wiki/AI-complete#AI-complete_problems">AI-complete</a>, meaning that solving it is equivalent to the problem of creating Artificial
+                            General Intelligence (i.e. Strong AI). That language is central to intelligence, especially in the view of those advocating symbolic approaches to AI, was discussed in Unit 5, in the lesson on <strong>Approaches to AI</strong>.
+                            And informally, we can argue that, if an artificial agent is capable of holding an intelligent conversation, it must be intelligent. This is the basis upon which the <a href="https://en.wikipedia.org/wiki/Turing_test">Turing Test</a>                            and also underlies the idea of the
+                            <a href="http://commonsensereasoning.org/winograd.html">Winograd Schema Challenge</a> which involves the correct interpretation of certain kinds of sentence known as
+                            <a href="https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WS.html">Winograd Schemas</a>.</p>
+                        <p>During the early development of AI,
+                            <a href="https://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a> problems were mainly approached using symbolic AI techniques such as
+                            <a href="https://en.wikipedia.org/wiki/Parsing">parsing</a> algorithms and knowledge representation languages. However, more recently the problem has increasingly been tackled using ML techniques. Over the past few years, models
+                            based on ANNs trained on very large corpora of text data, have been developed, which can, with a high degree of accuracy, perform language processing tasks that seem to require some level of understanding. Most prominent among
+                            these is the
+                            <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT language model</a>. More information about BERT can be found in the articles at
+                            <a href="https://devopedia.org/bert-language-model">devopedia.org</a> and
+                            <a href="https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html">Google AI Blog</a> and the
+                            <a href="https://arxiv.org/abs/1810.04805">original paper</a> (of Devlin <em>et al.</em>) presenting the BERT architecture.</p>
+                        <p>The problem of natural language understanding will no doubt be a major subject of AI research for many years to come. It seems unlikely that it will be fully solved in the near future; however, it is very likely that its study
+                            will lead to the development of many new programming ideas both in terms of algorithms and information representation.</p>
+                        <h3 id="multi-scale-reactive-planning">Multi-scale reactive planning<a class="headerlink" href="#multi-scale-reactive-planning" title="Permanent link">&para;</a></h3>
+                        <p>Suppose I wake up and realise that I need to go to the university to deliver a lecture. In order to do this I need to formulate and carry out some kind of plan. This will involve a sequence of high-level goals that I will need
+                            to achieve in order to successfully give the lecture:</p>
+                        <p>I need to get dressed, have some breakfast, check the time and place of the lecture, find and pack my laptop, choose a suitable mode of transport (walk, bike, bus?) and route, ..., set up my laptop, turn on the projection equipment.
+                            Finally, I am ready to give the lecture.</p>
+                        <p>But each of these high-level tasks also involves a large number of smaller steps that need to be planned and successfully executed. Making breakfast involves opening cupboards and packets and operating kitchen equipment. Eating
+                            involves careful coordinated movements and manipulations, otherwise I will cause a lot of mess. Also, in order to get everything done in time, I may need to do some tasks in parallel, such as packing my bag while the kettle
+                            is boiling. To complicate things further still, not all plans may work out as intended: maybe my laptop is not on the desk where I expected it to be; I have to look round the flat and finally locate it on the sofa.</p>
+                        <p>Although AI planning systems can compute quite long action sequences to achieve goals, the scenario described in the previous paragraph presents a planning problem that is far more complex than any modern AI planning algorithm
+                            would have any chance of solving. Humans, somehow seem to be able to split up planning problems naturally into different tasks and levels of granularity, so that our decision making at any one point in our activity is quite
+                            focussed despite there being a huge degree of potential interaction between different goals (somehow I forget about my laptop while making breakfast even though spilling tea on it could make it impossible to give my lecture).
+                            And we also seem to be able to adapt minor parts of our plans quite easily when things turn out a bit different from what was expected.</p>
+                        <p>Tackling this kind of problem has been regarded as a key problem for AI since its beginnings (see papers such as
+                            <a href="https://onlinelibrary.wiley.com/doi/abs/10.1207/s15516709cog0202_1"><em>Planning and Acting</em></a>, <a href="https://drum.lib.umd.edu/bitstream/handle/1903/5026/TR_90-78.pdf?sequence=1&amp;isAllowed=y"><em>Knowledge Strata: reactive planning with
+a multi-level architecture</em></a>) and <a href="https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-273.html"><em>Touring Machines</em></a>) and various general approaches have been developed in the fields of
+                            <a href="https://en.wikipedia.org/wiki/Hierarchical_task_network">Hierarchical Planning</a> (also know as hierarchical task networks) and
+                            <a href="https://en.wikipedia.org/wiki/Reactive_planning">Reactive Planning</a>. However, in terms of the performance on figuring out plans for realistic real world planning scenarios, current AI algorithms do not come anywhere
+                            close to human capabilities.</p>
+                        <h3 id="automated-reasoning">Automated reasoning<a class="headerlink" href="#automated-reasoning" title="Permanent link">&para;</a></h3>
+                        <p>The possibility of using
+                            <a href="https://en.wikipedia.org/wiki/Automated_reasoning">automated logical reasoning</a> in AI systems dates back to very early ideas such as
+                            <a href="http://jmc.stanford.edu/articles/index.html">John McCarthy</a>'s Situation Calculus (for the original proposal of the calculus see <a href="https://www.sciencedirect.com/science/article/pii/B9780934613033500337">this classic paper</a>).
+                            Unfortunately, automated reasoning using logical representations and inference is extremely computationally expensive. What is more, for many logical languages, testing inference can be
+                            <a href="https://en.wikipedia.org/wiki/Undecidable_problem"><em>undecidable</em></a>, meaning that there can be no algorithm that is guaranteed to terminate in all cases. Nevertheless, the expressive power of logical language
+                            to represent a wide range of different kinds of information and the fact that inferences can derived automatically mean that automated reasoning is very attractive as a mechanism to be used within an AI system.</p>
+                        <p>At one time (around the 80s) <em>artificial neural nets</em> (which were overviewed in the lesson on <strong>Approaches to AI</strong> in Unit 5) were considered to be a promising approach to develop AI systems. But they went out
+                            of fashion when it seemed that it was not possible to achieve useful functionality using this approach, at least not with the computing power that was available at that time. But of course with the computing power that is now
+                            available it has been found that extremely impressive functionality can be achieved from ANN-based systems.</p>
+                        <p>The field of Automated Reasoning could be in a similar situation. Although research in this area has continued from the earliest days of AI to the present day, in recent years it has been considered by many to be an implausible
+                            route to achieving significant AI capabilities. This has been due both to the computational power required and also to problems in representing the knowledge required to support reasoning. Since computing power has continued
+                            to increase and there is much scope for further development knowledge representation methods (including by combining with ML techniques), it is likely that there will be significant future developments in automated reasoning,
+                            which could make it a powerful component of AI systems.</p>
+                        <h3 id="synergies-between-symbolic-ai-and-ml">Synergies between symbolic AI and ML<a class="headerlink" href="#synergies-between-symbolic-ai-and-ml" title="Permanent link">&para;</a></h3>
+                        <p>As mentioned in the lesson on <strong>Approaches to AI</strong> in Unit 5, there is often scepticism from researchers in one of these areas to work following the other approach. However, it is increasingly recognised that there
+                            are many ways in which GOFAI and ML can be combined to develop advanced software capabilities.</p>
+                        <p>In fact systems such as AI game playing agents often use search algorithms that are guided by heuristic functions that have been discovered by ML techniques. Symbolic KR can provide powerful reasoning capabilities, but these are
+                            limited both by the difficulty of acquiring the knowledge required to support the reasoning and the problem guiding the reasoning process towards making the desired inferences. It is possible that both these issues could be
+                            addressed by utilising ML within a symbolic reasoning system.</p>
+                        <p>It is likely that investigation of possible ways to combine Symbolic AI and ML would be a very active research area in the future.</p>
+                        <h3 id="quantum-computing">Quantum computing<a class="headerlink" href="#quantum-computing" title="Permanent link">&para;</a></h3>
+                        <div style="float:right; text-align:center; padding: 5px">
+                            <a title="Ragsxl, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:IQM_Quantum_Computer_Espoo_Finland.jpg"><img  width="256" alt="IQM Quantum Computer Espoo Finland" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/IQM_Quantum_Computer_Espoo_Finland.jpg/256px-IQM_Quantum_Computer_Espoo_Finland.jpg"></a><br>
+                            <b>IQM Quantum Computer</b>
+                        </div>
+
+                        <p>In theory <a href="https://en.wikipedia.org/wiki/Quantum_computing">quantum computing</a> can implement certain algorithms much faster than is possible with conventional hardware. Quantum algorithms make use of the idea of <a href="https://en.wikipedia.org/wiki/Quantum_superposition">superposition</a>                            to combine multiple items of information within a single quantum state (a <a href="https://en.wikipedia.org/wiki/Qubit">Qubit</a>). This enables massive parallelism for certain types of algorithm which could potentially mean
+                            that an algorithm that is of exponential time complexity on conventional machines could require only polynomial time if implemented on a quantum computer (see <a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm">Shor's algorithm</a>,
+                            which can be used to crack cryptographic encoding).</p>
+                        <p><a href="https://www.ibm.com/quantum-computing/">IBM</a> and
+                            <a href="https://www.intel.com/content/www/us/en/research/quantum-computing.html">Intel</a>
+                            <a href="https://research.google/teams/applied-science/quantum/">Google</a> have all been investing heavily in quantum computing research and are aiming to produce commercial quantum computation products with the next decade;
+                            and the Finnish-based company <a href="https://www.meetiqm.com/">IQM</a> is the leading European developer of quantum computers.</p>
+                        <p>It is possible that quantum computing could massively increase the power of computers over the coming decades. However this is by no means certain. There are many technical issues that make construction and reliable operation of
+                            quantum computers extremely difficult. Furthermore, although quantum computing may reduce the complexity of a certain type of problems it is by no means clear that it gives significant advantage in solving the kinds of NP-hard
+                            search problem that are typically employed of Symbolic AI. (This article on <a href="https://www.cs.virginia.edu/~robins/The_Limits_of_Quantum_Computers.pdf"><em>The Limits of Quantum</em></a> provides an accessible and entertaining
+                            exploration of this issue.)</p>
+                        <h4 id="human-compatibility-issues">Human Compatibility Issues<a class="headerlink" href="#human-compatibility-issues" title="Permanent link">&para;</a></h4>
+                        <p>As computers become more and more closely integrated in to human life they affect us in many ways. They may change or replace our roles and affect our experience in our work, leisure and social interactions. It is clear that computers
+                            can provide significant benefits but they may also have negative affects on us. What I refer to as
+                            <em>human compatibility issues</em> covers all aspects of the interactions between humans and computers and potential problems that can occur. Addressing these issues will increasingly become a major topic of study in relation
+                            to technical design, and also to legal regulation and social policies. We shall cover issues concerning the most serious kinds of compatibility issue in more detail later in this unit, in the lesson on <strong>Dangers of AI</strong>.</p>
+                        <h2 id="future-applications">Future Applications<a class="headerlink" href="#future-applications" title="Permanent link">&para;</a></h2>
+                        <p>We will finish the lesson by listing a range of directions in which significant developments and novel applications are likely in the near or medium range future. We will not go into details here, but you are but you are encouraged
+                            to investigate any that you are not aware of.</p>
+                        <ul>
+                            <li>autonomous robots
+                                <ul>
+                                    <li>worker robots</li>
+                                    <li>driverless cars</li>
+                                    <li>care and companionship</li>
+                                </ul>
+                            </li>
+                            <li>human-computer interfaces
+                                <ul>
+                                    <li>voice controlled systems (more intelligent than Siri and Alexa)</li>
+                                </ul>
+                            </li>
+                            <li>AI personal assistants</li>
+                            <li>ubiquitous AI</li>
+                            <li>blockchain technology</li>
+                            <li>computer enhancement of human abilities
+                                <ul>
+                                    <li>augmented reality</li>
+                                    <li>powered exoskeletons</li>
+                                    <li>cognitive enhancement</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>Can you think of any significant types of future application that has been missed out of this list?</p>
+                        </div>
+                        <div class="admonition tip">
+                            <p class="admonition-title">Exercise</p>
+                            <p>Go through the above list of future applications and for each one write down a date for when you would expect that application to be available in a usable form for ordinary people to use. (E.g. in what year, if ever, would
+                                you expect to first travel in a driver-less car?)</p>
+                            <p>You should write your estimates in your <code>Personal_Log.ipynb</code>, notebook, and take another look at it in 10 or 20 years to see if your predictions were accurate.</p>
+                        </div>
+                        <div class="admonition tip">
+                            <p class="admonition-title">Exercise</p>
+                            <p>Select two or three of the types of future application listed above. For each of your choices identify research challenges that need to be addressed to achieve significant advances in developing that kind of application. Consider
+                                also whether particular types of program language innovation may be useful in order to develop the software required for that kind of application.</p>
+                        </div>
+                        <h2 id="lesson-complete">Lesson complete<a class="headerlink" href="#lesson-complete" title="Permanent link">&para;</a></h2>
+                        <p>You should now be able to understand the possible future developments in Programming languages, Software related research areas and Novel computing applications.</p>
+                        <p><strong>Select the next button to continue to the next lesson.</strong></p>
+
+
+                    </article>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="md-footer">
+
+            <nav class="md-footer__inner md-grid" aria-label="Footer">
+
+
+                <a href="../../unit5/5_06_unit-summary/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 7. Unit summary" rel="prev">
+                    <div class="md-footer__button md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+                    </div>
+                    <div class="md-footer__title">
+                        <div class="md-ellipsis">
+                            <span class="md-footer__direction">
+                Previous
+              </span> 7. Unit summary
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a href="../06_02_dangers-of-AI/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Dangers of AI" rel="next">
+                    <div class="md-footer__title">
+                        <div class="md-ellipsis">
+                            <span class="md-footer__direction">
+                Next
+              </span> 2. Dangers of AI
+                        </div>
+                    </div>
+                    <div class="md-footer__button md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+                    </div>
+                </a>
+
+            </nav>
+
+            <div class="md-footer-meta md-typeset">
+                <div class="md-footer-meta__inner md-grid">
+                    <div class="md-copyright">
+
+                        <div class="md-copyright__highlight">
+                            Copyright © Digital Education Service | University of Leeds
+                        </div>
+
+
+                        Made with
+                        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+        <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">
+        {
+            "base": "../../..",
+            "features": ["navigation.tabs"],
+            "translations": {
+                "clipboard.copy": "Copy to clipboard",
+                "clipboard.copied": "Copied to clipboard",
+                "search.config.lang": "en",
+                "search.config.pipeline": "trimmer, stopWordFilter",
+                "search.config.separator": "[\\s\\-]+",
+                "search.placeholder": "Search",
+                "search.result.placeholder": "Type to start searching",
+                "search.result.none": "No matching documents",
+                "search.result.one": "1 matching document",
+                "search.result.other": "# matching documents",
+                "search.result.more.one": "1 more on this page",
+                "search.result.more.other": "# more on this page",
+                "search.result.term.missing": "Missing",
+                "select.version.title": "Select version"
+            },
+            "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"
+        }
+    </script>
+
+
+    <script src="../../../assets/javascripts/bundle.467223ff.min.js"></script>
+
+    <script src="../../../javascript/tablecontentsoverride.js"></script>
+
+    <script src="../../../javascript/config.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+</body>
+
+</html>

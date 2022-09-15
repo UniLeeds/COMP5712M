@@ -1,0 +1,2088 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+    <meta name="author" content="Digital Education Service">
+
+
+    <link rel="icon" href="../../../img/favicon.jpg">
+    <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+
+
+
+    <title>1. Data analysis - Programming for Data Science</title>
+
+
+
+    <link rel="stylesheet" href="../../../assets/stylesheets/main.2d9f7617.min.css">
+
+
+    <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+        :root {
+            --md-text-font: "Inter";
+            --md-code-font: "Roboto Mono"
+        }
+    </style>
+
+
+
+    <link rel="stylesheet" href="../../../css/extra.css">
+
+    <script>
+        __md_scope = new URL("../../..", location), __md_get = (e, _ = localStorage, t = __md_scope) => JSON.parse(_.getItem(t.pathname + "." + e)), __md_set = (e, _, t = localStorage, a = __md_scope) => {
+            try {
+                t.setItem(a.pathname + "." + e, JSON.stringify(_))
+            } catch (e) {}
+        }
+    </script>
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+
+
+
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+
+
+        <a href="#data-analysis" class="md-skip">
+          Skip to content
+        </a>
+
+    </div>
+    <div data-md-component="announce">
+
+        <aside class="md-banner">
+            <div class="md-banner__inner md-grid md-typeset">
+
+                <div id="versionIndicator"><b>Version:</b> 14.09.22.b</div>
+                <img id="customlogo" src="../../../img/logo.svg" alt="University of Leeds logo.">
+
+            </div>
+        </aside>
+
+    </div>
+
+
+
+
+    <header class="md-header" data-md-component="header">
+        <nav class="md-header__inner md-grid" aria-label="Header">
+            <a href="../../.." title="Programming for Data Science" class="md-header__button md-logo" aria-label="Programming for Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+            <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+            <div class="md-header__title" data-md-component="header-title">
+                <div class="md-header__ellipsis">
+                    <div class="md-header__topic">
+                        <span class="md-ellipsis">
+            Programming for Data Science
+          </span>
+                    </div>
+                    <div class="md-header__topic" data-md-component="header-topic">
+                        <span class="md-ellipsis">
+            
+              1. Data analysis
+            
+          </span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+            <div class="md-search" data-md-component="search" role="dialog">
+                <label class="md-search__overlay" for="__search"></label>
+                <div class="md-search__inner" role="search">
+                    <form class="md-search__form" name="search">
+                        <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+                        <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+                        <nav class="md-search__options" aria-label="Search">
+
+                            <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+                        </nav>
+
+                    </form>
+                    <div class="md-search__output">
+                        <div class="md-search__scrollwrap" data-md-scrollfix>
+                            <div class="md-search-result" data-md-component="search-result">
+                                <div class="md-search-result__meta">
+                                    Initializing search
+                                </div>
+                                <ol class="md-search-result__list"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </nav>
+
+    </header>
+
+    <div class="md-container" data-md-component="container">
+
+
+
+
+
+        <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+            <div class="md-tabs__inner md-grid">
+                <ul class="md-tabs__list">
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../.." class="md-tabs__link">
+      Welcome
+    </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit1/1_01_history-of-programming/" class="md-tabs__link">
+        Unit 1
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit2/2_01_programs-and-data/" class="md-tabs__link">
+        Unit 2
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit3/3_01_intro-to-data-analysis/" class="md-tabs__link">
+        Unit 3
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="./" class="md-tabs__link md-tabs__link--active">
+        Unit 4
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit5/5_00_unit-introduction/" class="md-tabs__link">
+        Unit 5
+      </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="md-tabs__item">
+                        <a href="../../unit6/06_01_Possibilities_and_Challenges/" class="md-tabs__link">
+        Unit 6
+      </a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+
+
+
+                <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                    <div class="md-sidebar__scrollwrap">
+                        <div class="md-sidebar__inner">
+
+
+
+
+
+                            <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+                                <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programming for Data Science" class="md-nav__button md-logo" aria-label="Programming for Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Programming for Data Science
+  </label>
+
+                                <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item">
+                                        <a href="../../.." class="md-nav__link">
+        Welcome
+      </a>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_2">
+          Unit 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 1" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 1
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_01_history-of-programming/" class="md-nav__link">
+        1. History of programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_02_introduction-to-python/" class="md-nav__link">
+        2. Introduction to Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_03_introduction-to-jupyter-notebook/" class="md-nav__link">
+        3. Introduction to Jupyter Notebook
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_04_personal-log-activity/" class="md-nav__link">
+        4. Activity: Jupyter Notebook
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_05_basic-operations/" class="md-nav__link">
+        5. Basic operators in Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_2_6">
+          6. Basic data types in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="6. Basic data types in Python" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          6. Basic data types in Python
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_i_basic-data-types/" class="md-nav__link">
+        6a. Introduction: Basic data types in Python
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_ii_number-types/" class="md-nav__link">
+        6b. Number types
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_iii_strings/" class="md-nav__link">
+        6c. Strings
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_iv_booleans-and-logical-operators/" class="md-nav__link">
+        6d. Booleans and logical operators
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_06_v_the-none-type/" class="md-nav__link">
+        6e. The none type
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_07_basic-data-types-activity/" class="md-nav__link">
+        7. Activity: Basic data types
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_08_containers-and-complex-types/" class="md-nav__link">
+        8. Containers and complex types in Python
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_09_containers-and-complex-types-activity/" class="md-nav__link">
+        9. Activity: Container data types
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_2_10">
+          10. Control structures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="10. Control structures" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          10. Control structures
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_i_control-structures/" class="md-nav__link">
+        10a. Introduction: Control structures
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_ii_conditionals/" class="md-nav__link">
+        10b. Conditionals
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_iii_loops/" class="md-nav__link">
+        10c. Loops
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../../unit1/1_10_iiii_list-comprehension/" class="md-nav__link">
+        10d. List Comprehension
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_11_control-structures-activity/" class="md-nav__link">
+        11. Activity: Control structures
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_12_unit-summary/" class="md-nav__link">
+        12. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit1/1_13_unit-references/" class="md-nav__link">
+        13. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_3">
+          Unit 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 2" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 2
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_01_programs-and-data/" class="md-nav__link">
+        1. The role of data in computer programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_02_functions/" class="md-nav__link">
+        2. Functions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_03_functions-activity/" class="md-nav__link">
+        3. Activity: Functions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_04_object-orientation/" class="md-nav__link">
+        4. Object-orientated programming
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_05_object-orientation-activity/" class="md-nav__link">
+        5. Activity: Object orientation
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_06_using-files/" class="md-nav__link">
+        6. Accessing and manipulating information in files
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_07_csv-files-activity/" class="md-nav__link">
+        7. Activity: Working with files
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_08_significance-of-data/" class="md-nav__link">
+        8. Data and data structures in computer programming and application development
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_09_unit-summary/" class="md-nav__link">
+        9. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit2/2_10_unit-references/" class="md-nav__link">
+        10. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_4">
+          Unit 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 3" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 3
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_01_intro-to-data-analysis/" class="md-nav__link">
+        1. Data transformation and analysis
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_02_data-transformations-activity/" class="md-nav__link">
+        2. Activity: Transforming data
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_03_data-quality/" class="md-nav__link">
+        3. Data quality
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_04_pandas/" class="md-nav__link">
+        4. Pandas
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_05_pandas-activity/" class="md-nav__link">
+        5. Activity: Pandas
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_06_unit-summary/" class="md-nav__link">
+        6. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit3/3_07_unit-references/" class="md-nav__link">
+        7. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_5">
+          Unit 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 4" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 4
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--active">
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+
+
+
+
+
+                                                    <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. Data analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <a href="./" class="md-nav__link md-nav__link--active">
+        1. Data analysis
+      </a>
+
+
+
+                                                    <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+                                                        <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+                                                        <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#the-concept-of-analysis" class="md-nav__link">
+    The concept of analysis
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#data-analysis-pipelines" class="md-nav__link">
+    Data analysis pipelines
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#an-iterative-cycle-of-analysis" class="md-nav__link">
+    An iterative cycle of analysis
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#a-branching-picture-of-analysis" class="md-nav__link">
+    A branching picture of analysis
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#analysis-vs-synthesis" class="md-nav__link">
+    Analysis vs synthesis
+  </a>
+
+                                                                <nav class="md-nav" aria-label="Analysis vs synthesis">
+                                                                    <ul class="md-nav__list">
+
+                                                                        <li class="md-nav__item">
+                                                                            <a href="#synthesis-in-data-science" class="md-nav__link">
+    Synthesis in data science
+  </a>
+
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </nav>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#data-mining" class="md-nav__link">
+    Data mining
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#data-synthesis-and-synthetic-data" class="md-nav__link">
+    Data synthesis and synthetic data
+  </a>
+
+                                                            </li>
+
+                                                            <li class="md-nav__item">
+                                                                <a href="#lesson-complete" class="md-nav__link">
+    Lesson complete
+  </a>
+
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </nav>
+
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_02_data-acquisition/" class="md-nav__link">
+        2. Data acquisition
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_03_data-resources/" class="md-nav__link">
+        3. Data resources
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_04_data-visualisation-matplotlib/" class="md-nav__link">
+        4. Introduction to matplotlib
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_05_frequency-distributions/" class="md-nav__link">
+        5. Frequency distributions
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_06_matplotlib-exercises/" class="md-nav__link">
+        6. Matplotlib activity
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item md-nav__item--nested">
+
+
+                                                    <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7">
+
+
+
+
+                                                    <label class="md-nav__link" for="__nav_5_7">
+          7. Data analysis examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                                    <nav class="md-nav" aria-label="7. Data analysis examples" data-md-level="2">
+                                                        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          7. Data analysis examples
+        </label>
+                                                        <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../4_07_i_data-analysis-examples/" class="md-nav__link">
+        7a. Data analysis examples
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../4_07_ii_text-analysis/" class="md-nav__link">
+        7b. Text analysis
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../4_07_iii_maps-and-geographic-data/" class="md-nav__link">
+        7c. Maps and geographic data
+      </a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+                                                            <li class="md-nav__item">
+                                                                <a href="../4_07_iv_image-processing/" class="md-nav__link">
+        7d. Image processing
+      </a>
+                                                            </li>
+
+
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_08_data-visualisation/" class="md-nav__link">
+        8. Data visualisation
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_09_unit-summary/" class="md-nav__link">
+        9. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../4_10_unit-references/" class="md-nav__link">
+        10. Unit references
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_6">
+          Unit 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 5" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 5
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_00_unit-introduction/" class="md-nav__link">
+        1. Artificial intelligence
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_01_AI-intro/" class="md-nav__link">
+        2. What is AI?
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_02_AI-approaches/" class="md-nav__link">
+        3. AI approaches
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_03_search/" class="md-nav__link">
+        4. Activity: Search
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_04_adversarial-games/" class="md-nav__link">
+        5. Adversarial games
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_05_decision-trees/" class="md-nav__link">
+        6. Activity: Decision trees
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit5/5_06_unit-summary/" class="md-nav__link">
+        7. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="md-nav__item md-nav__item--nested">
+
+
+                                        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7">
+
+
+
+
+                                        <label class="md-nav__link" for="__nav_7">
+          Unit 6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+                                        <nav class="md-nav" aria-label="Unit 6" data-md-level="1">
+                                            <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Unit 6
+        </label>
+                                            <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_01_Possibilities_and_Challenges/" class="md-nav__link">
+        1. Possibilities and challenges
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_02_dangers-of-AI/" class="md-nav__link">
+        2. Dangers of AI
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_03_developing-your-skills/" class="md-nav__link">
+        3. Developing your skills
+      </a>
+                                                </li>
+
+
+
+
+
+
+
+
+
+                                                <li class="md-nav__item">
+                                                    <a href="../../unit6/06_04_unit-summary/" class="md-nav__link">
+        4. Unit summary
+      </a>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </nav>
+                                    </li>
+
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                    <div class="md-sidebar__scrollwrap">
+                        <div class="md-sidebar__inner">
+
+
+                            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+                                <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+                                <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+                                    <li class="md-nav__item">
+                                        <a href="#the-concept-of-analysis" class="md-nav__link">
+    The concept of analysis
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#data-analysis-pipelines" class="md-nav__link">
+    Data analysis pipelines
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#an-iterative-cycle-of-analysis" class="md-nav__link">
+    An iterative cycle of analysis
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#a-branching-picture-of-analysis" class="md-nav__link">
+    A branching picture of analysis
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#analysis-vs-synthesis" class="md-nav__link">
+    Analysis vs synthesis
+  </a>
+
+                                        <nav class="md-nav" aria-label="Analysis vs synthesis">
+                                            <ul class="md-nav__list">
+
+                                                <li class="md-nav__item">
+                                                    <a href="#synthesis-in-data-science" class="md-nav__link">
+    Synthesis in data science
+  </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#data-mining" class="md-nav__link">
+    Data mining
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#data-synthesis-and-synthetic-data" class="md-nav__link">
+    Data synthesis and synthetic data
+  </a>
+
+                                    </li>
+
+                                    <li class="md-nav__item">
+                                        <a href="#lesson-complete" class="md-nav__link">
+    Lesson complete
+  </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+
+
+
+
+                        <h1 id="data-analysis">Data analysis<a class="headerlink" href="#data-analysis" title="Permanent link">&para;</a></h1>
+                        <p>In this video, Brandon welcomes you to Unit 4 and gives an overview of the topics you will cover.</p>
+                        <iframe title="Unit 4 Overview" width="100%" height="400" frameborder="0" scrolling="auto" marginheight="0" marginwidth="0" src="https://mymedia.leeds.ac.uk/Mediasite/Play/8b0aa76e5d46496bb4f6b670d687952e1d" allowfullscreen msallowfullscreen allow="fullscreen"></iframe>
+
+                        <p><a href="https://minerva.leeds.ac.uk/bbcswebdav/xid-18577989_4
+" target="_blank">View PDF transcript</a><br>
+                            <a href="https://minerva.leeds.ac.uk/bbcswebdav/xid-18580620_4
+" target="_blank">Audio file</a></p>
+                        <p>This lesson will introduce you to the general ideas and methodology of data analysis. We will examine the structure of the process by which data can be analysed in order to reveal significant answers to meaningful questions. We
+                            shall see that this is a dynamic process which involves many choices and may require one to deal with a wide variety of issues.</p>
+                        <div class="admonition success">
+                            <p class="admonition-title">Learning outcomes</p>
+                            <p>After completing this lesson you should:</p>
+                            <ul>
+                                <li>
+                                    <p>understand the pipeline architecture and how it can be applied to data analysis</p>
+                                </li>
+                                <li>
+                                    <p>be able to explain various different ways in which data analysis can progress in the light of evaluation of results.</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <h2 id="the-concept-of-analysis">The concept of analysis<a class="headerlink" href="#the-concept-of-analysis" title="Permanent link">&para;</a></h2>
+                        <p>Let us consider the meaning of the word <strong>analysis</strong>. This may not be directly relevant to practical programming tasks; but, in order to achieve insight as a data scientist, you will need to develop a broad perspective
+                            of the field. Awareness of the meanings and interpretations of key terms will help you develop this.</p>
+                        <p>Here are some possible definitions of the word analysis:</p>
+                        <ul>
+                            <li>The process of separating something into its constituent elements.</li>
+                            <li>Resolution of anything complex into simple elements.</li>
+                            <li>Detailed examination of the elements or structure of something.</li>
+                        </ul>
+                        <p>These definitions correspond well with certain types of data analysis that we might perform. For example, there are many cases where we have a set of heterogeneous information and want to split it into classes (and often also quantify
+                            or rank those classes). This could include:</p>
+                        <ul>
+                            <li>finding the breakdown of different types of people visiting a website in terms of attributes such as age, gender, nationality etc.</li>
+                            <li>quantifying and ranking the volume of information stored on servers in each country</li>
+                            <li>classifying causes of death in a population.</li>
+                        </ul>
+                        <p>Analysis of this kind is often very useful and sometimes may reveal surprising results that were not so obvious from the mixed-up data that we started with. However, the methods of of data science are certainly not limited to these
+                            purely
+                            <a href="https://en.wikipedia.org/wiki/Reductionism" target="_blank">reductionist</a> forms of investigation.</p>
+                        <p>A fundamental aspect of data science is that (when done properly) it is not just a set of techniques that can be applied to data to give results. It is a dynamic process of investigation and interpretation in which each finding
+                            guides subsequent investigation. In the rest of this lesson, we shall consider ways in which this process can be organised and can progress towards finding useful and interesting answers to significant questions.
+                        </p>
+                        <h2 id="data-analysis-pipelines">Data analysis pipelines<a class="headerlink" href="#data-analysis-pipelines" title="Permanent link">&para;</a></h2>
+                        <p>It was mentioned in the previous unit that data analysis can be considered as a particular type of transformation, where we apply processing operations to data in order to obtain useful or interesting results. Hence, the simplest
+                            picture of data analysis is as follows:</p>
+                        <figure>
+                            <img src="../images/4_01_analysis-step.png" alt="Diagram of data analysis. The diagram starts with data, which is then transformed into results." width="80%" style="display: block; margin:auto;" />
+                            <figcaption>
+                                <p><strong>Figure 4.1:</strong> Data analysis pictured as a single transformation from data to results.</p>
+                            </figcaption>
+                        </figure>
+
+                        <p>However, the transformation required to derive anything useful or interesting from the input data may be very complex and will often involve a long sequence of processing operations. Hence, in order to make the programming task
+                            reliable and also to ensure that the analysis is robust and reliable, the processing will typically be broken down into several steps. In fact, in many cases it will be broken down into a large number of relatively simple steps.
+                            This leads us to the following picture of data analysis:</p>
+                        <figure>
+                            <img src="../images/4_01_analysis-pipeline.png" alt="Diagram of a data analysis pipeline. It shows data going through several transformations before reaching results." width="80%" style="display: block; margin:auto;" />
+                            <figcaption>
+                                <p><strong>Figure 4.2:</strong> A data analysis pipeline consisting of a sequence of transformation steps.</p>
+                            </figcaption>
+                        </figure>
+
+                        <p>This way of organising computational processing is known as a pipeline architecture. Typically, the pipeline will begin with low level operations such as 'cleaning' the data to resolve quality issues. It will then progress through
+                            various stages of selection and organisation. Towards the end of the pipeline sophisticated data mining, machine learning or other AI algorithms might be be applied. As well as helping programmers to organise code into manageable
+                            modules, the pipeline architecture makes it easy to check intermediate results at many stages, which facilitates identification of bugs and hence helps ensure that the analysis is reliable.</p>
+                        <h2 id="an-iterative-cycle-of-analysis">An iterative cycle of analysis<a class="headerlink" href="#an-iterative-cycle-of-analysis" title="Permanent link">&para;</a></h2>
+                        <p>The pipeline architecture organises data analysis in a way that is conceptually simple and beneficial for reliable implementation. However, in relation to the process of analysis that is actually carried out by data scientists,
+                            it leaves out several very important aspects of the situation, and thus is somewhat misleading.</p>
+                        <p>In fact, the pipeline picture misses out the essential motivation for data analysis, which is this:</p>
+                        <p><strong>We have questions and we want answers.</strong></p>
+                        <p>So, perhaps the following picture is more appropriate:</p>
+                        <figure>
+                            <img src="../images/4_01_questions-to-answers.png" alt="Diagram of a data analysis pipeline. Questions are sent into a black box, which represents data analysis. An arrow leads out of this box, pointing to answers." width="80%" style="display: block; margin:auto;"
+                            />
+                            <figcaption>
+                                <p><strong>Figure 4.3:</strong> Data analysis is pictured as a black box, into which we send questions and out of which we get answers.</p>
+                            </figcaption>
+                        </figure>
+
+                        <p>Maybe the above picture is accurate, but it is not very informative. Yes, data analysis is about finding answers to questions. But how does it work? Well, as we have seen, in the field of data science it is achieved by processing
+                            data by computational transformations, in a way that is usually organised in terms of a pipeline architecture. To get a better picture, we need to fill in the structure of how data and transformations play their role in data
+                            analysis.</p>
+                        <p>Let us first consider the simple picture of a single transformation from data to results. In the context of our goal of finding answers to questions, we can incorporate our data-driven, computational method of analysis into the
+                            picture as follows:</p>
+                        <figure>
+                            <img src="../images/4_01_analysis-cycle.png" alt="Diagram showing how data transformation can be used to find answers to questions. Questions lead to procuring data, which is then transformed when it is explored. The data transformation leads to results, which then can be evaluated to reveal answers. The results can then be reassessed leading to new questions."
+                                width="80%" style="display: block; margin:auto;" />
+                            <figcaption>
+                                <p><strong>Figure 4.4:</strong> Diagram showing data transformation incorporated within the wider goal of obtaining answers to questions.</p>
+                            </figcaption>
+                        </figure>
+
+                        <p>Here we see that questions motivate us to procure relevant data, which we explore by means of computational transformations in order to derive results, which we then evaluate with the intention of finding answers.</p>
+                        <p>Of course, as outlined above, we will most likely break down a complex transformation into sequence of steps forming a pipeline.</p>
+                        <p>We must also note another very important feature of Figure 4.4: it indicates that, the results of a transformation do not directly give us answers. In order to find meaningful answers, we need to <strong>evaluate</strong> the results
+                            that have been obtained. Moreover, when results are evaluated we do not only find answers, we are very likely to realise that many other questions remain. In fact, one may realise that only limited answers can be drawn from
+                            the results obtained so far and that further analysis is needed to get any significant or useful answers. This is shown in the diagram by the split in the arrow that represents the consequences of evaluation: it can reveal
+                            answers, but it will usually also lead to one to <em>reassess</em> the issues and <strong>raise more questions</strong>.</p>
+                        <p>Since reassessment brings us back to questions, and the purpose of analysis is to answer questions, it may seem like we can simply repeat the process of analysis, applying it to the questions arising from the first analyses, and
+                            then if further questions arise, we could further repeat the process to reach more and more significant answers.</p>
+                        <p>But it is not so simple. There are many ways in which we could address the issues that have arisen and continue on to further analysis. Here are some possibilities:</p>
+                        <ol>
+                            <li>
+                                <p><strong>Extend the processing pipeline.</strong> This is the most straightforward way to continue. We realise that by adding further steps to the analysis pipeline we can get more detailed or more useful results.</p>
+                            </li>
+                            <li>
+                                <p><strong>Modify the pipeline.</strong> In many cases, we may realise that we cannot simply add processing steps to the end of the pipeline, since there are limitations or problems occurring earlier in the process. Hence,
+                                    we may need to insert additional steps into the pipeline, or modify or replace earlier steps.</p>
+                            </li>
+                            <li>
+                                <p><strong>Use different data.</strong> This may seem radical, since the we may have been thinking of the data as the origin of the analysis process and so be reluctant to abandon or change it. However, the motivation and
+                                    true origin of analysis is questions, and it may be that the data that we have is unsuitable or inadequate to answer these questions. Recognising when data is not adequate to yield the information we seek is a vital
+                                    skill for a data scientist. Having appropriate and sufficiently high quality data is essential for revealing interesting and potentially useful insights.</p>
+                            </li>
+                            <li>
+                                <p><strong>Incorporate additional data.</strong> Another very common outcome of evaluating the results of analysis is that we realise that we realise that we simply do not have enough data, either in terms of sheer quantity
+                                    or perhaps in the variety of samples or the range of attributes that have been recorded. Many algorithms, especially those involving statistical calculations and/or machine learning, require large amounts of data to
+                                    give reliable and accurate results. With only a small amount of data you may get results that will not apply to other cases, and hence the answers one appears to get may be misleading. A similar problem occurs in relation
+                                    to the variety of attributes in the data. If this is too limited, it may not be possible to yield the information we wish to obtain. (In particular we may be unable to accurately establish a classification that we wish
+                                    to make.) It is actually very common for a data analysis project to begin by investigating a fairly small dataset, and then, once the results of this pilot study have been analysed, look for a larger and/or more diverse
+                                    dataset that can yield more information that is relevant to the questions one wishes to answer.</p>
+                            </li>
+                            <li>
+                                <p><strong>Refine or revise our questions.</strong> This is the truly radical form of reassessment, which does take us back to the beginning of our endeavour. After evaluating the results of data analysis, one may realise
+                                    that the questions one originally wanted to answer are in fact poorly defined or ill-conceived. Here are some ways in which we may find that our questions are not as precise or interesting as we had assumed:</p>
+                                <ul>
+                                    <li>
+                                        <p>The question is too narrow. It only applies to a small number of cases and is not significant in a wider context.</p>
+                                    </li>
+                                    <li>
+                                        <p>The question is too broad. Although the question may be answered in a general way, it hides a large amount of variation which has a significant and interesting form.</p>
+                                    </li>
+                                    <li>
+                                        <p>The question is not sufficiently clear. This may be revealed if, when trying to interpret results in order to answer the question, it is found that there is ambiguity and subjective judgement needs to be applied.</p>
+                                    </li>
+                                    <li>
+                                        <p>The answer to the question varies depending upon other factors, such as when and where it is asked.</p>
+                                    </li>
+                                    <li>
+                                        <p>The question incorporates unwarranted assumptions about causal relationships. For example, the question could ask: <em>How does
+  property <span class="arithmatex">\(X\)</span> depend on property <span class="arithmatex">\(Y\)</span>?</em>; and analysis may appear to give answers to this. However, upon further analysis it may be recognised that properties <span class="arithmatex">\(X\)</span>                                            and <span class="arithmatex">\(Y\)</span> are both strongly affected by a third, previously unconsidered factor, <span class="arithmatex">\(Z\)</span>. Hence, the apparent correspondence between <span class="arithmatex">\(X\)</span>                                            and <span class="arithmatex">\(Y\)</span> may be only due to their both being dependent on <span class="arithmatex">\(Z\)</span>. For example, it may be found that people who use a certain kind of toothpaste
+                                            have, on average, much better condition teeth than those who do not. But that could just be that for other reasons (such as price or marketing) that toothpaste is mostly bought be people that do not eat much
+                                            sugary food.</p>
+                                    </li>
+                                    <li>
+                                        <p>Answering the question would require kinds of investigation that cannot be conducted simply by gathering and analysing data.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question about questions</p>
+                            <p>Consider the following questions with regard to why they may need to be clarified, refined or revised:</p>
+                            <ul>
+                                <li>
+                                    <p>What is the relationship between nationality and life expectancy?</p>
+                                </li>
+                                <li>
+                                    <p>Does food affect intelligence?</p>
+                                </li>
+                                <li>
+                                    <p>How does the human brain work?</p>
+                                </li>
+                                <li>
+                                    <p>Who is the most popular pop star?</p>
+                                </li>
+                                <li>
+                                    <p>Do Californian LISP programmers earn more that French Prolog programmers?</p>
+                                </li>
+                                <li>
+                                    <p>Does eating sushi increase life expectancy?</p>
+                                </li>
+                                <li>
+                                    <p>Are people who can program in Python cleverer than those who cannot?</p>
+                                </li>
+                                <li>
+                                    <p>Why are people who can program in Python cleverer than those who cannot?</p>
+                                </li>
+                            </ul>
+                            <p>When you have considered the questions, share your thoughts in the discussion thread in Minerva. Access the thread for this topic by selecting the <strong>'Discussion'</strong> tab in the side navigation in Minerva and selecting
+                                the <strong>'Questions about questions'</strong> thread for this lesson.</p>
+                        </div>
+                        <h2 id="a-branching-picture-of-analysis">A branching picture of analysis<a class="headerlink" href="#a-branching-picture-of-analysis" title="Permanent link">&para;</a></h2>
+                        <p>The considerations of the previous section suggest that analysis is not a linear process where each successive iteration is determined by the results of the last. It is actually a process that involves many choices among possible
+                            ways to proceed.</p>
+                        <p>There are choices even at the outset, when we decide what data to procure and how to explore it. And each time we evaluate some results there are further choices: whether we are content with our answers or whether we want to proceed
+                            with further analysis; and if we want to extend the analysis, in what direction should we proceed? Do we need different data, more data, more processing steps, different kinds of processing, or some combination of these? Hence,
+                            we should view the process of analysis as a branching structure in which we choose how to progress after each evaluation. Bearing this in mind, we can picture the scenario of data analysis culminating in evaluation as follows:</p>
+                        <figure>
+                            <img src="../images/4_01_analysis-cycle-branching.png" alt="Diagram showing data analysis. Questions lead to procuring data. This data is then transformed when it is explored, which leads to results. When these results are evaluated they reveal answers, as well as several possible directions for further investigation."
+                                width="80%" style="display: block; margin:auto;" />
+                            <figcaption>
+                                <p><strong>Figure 4.5:</strong> This diagram indicates how following data analysis and evalution, some answers may have been obtained but reassessment has opened up several possible directions for further investigation.</p>
+                            </figcaption>
+                        </figure>
+
+                        <p>Since each question that arises can lead to further analysis, the possible paths that we could take form a tree, where each branch corresponds to a possible sequence of analysis tasks. Of course the answers we may find along some
+                            paths may be much more interesting or useful than those we find on others.</p>
+                        <figure>
+                            <img src="../images/4_01_analysis-tree.png" alt="Diagram showing the possibilities of extending data analysis. Several groups of questions are explored after each set of results leading to a branching structure." width="80%" style="display: block; margin:auto;"
+                            />
+                            <figcaption>
+                                <p><strong>Figure 4.6:</strong> Illustration of the branching tree structure formed by the possibilities of extending analysis in different directions.</p>
+                            </figcaption>
+                        </figure>
+
+                        <p>We shall see in the next unit that this branching structure of data analysis is directly analogous to the abstract structure known as a search space, which underpins the way in which many artificial intelligence algorithms find
+                            solutions to a wide variety of problems.</p>
+                        <h2 id="analysis-vs-synthesis">Analysis vs synthesis<a class="headerlink" href="#analysis-vs-synthesis" title="Permanent link">&para;</a></h2>
+                        <p>In study of philosophy and literature, the concept of analysis is often contrasted with synthesis:</p>
+                        <ul>
+                            <li><strong>Analysis</strong> is a kind of enquiry that breaks down its subject of examination to find its basic elements and structure.</li>
+                            <li><strong>Synthesis</strong> (in this sense) compares and brings together different subjects and<br /> phenomena to reveal connections and correspondences between them.</li>
+                        </ul>
+                        <h3 id="synthesis-in-data-science">Synthesis in data science<a class="headerlink" href="#synthesis-in-data-science" title="Permanent link">&para;</a></h3>
+                        <p>In data science, the term data analysis can mean any of a very wide range of data processing techniques, algorithms and evaluation tools that may be applied to derive information from data. Hence, the term data analysis can include
+                            both <strong>analysis</strong> in its original sense of breaking down data into underlying components and structures; and also
+                            <strong>synthesis</strong>, since we are often interested in comparing and identifying correlations between different kinds of data value or dataset.
+                        </p>
+                        <figure>
+                            <img src="../images/4_01_synthesis.png" alt="Diagram showing how two different sets of data analysis can be combined to obtain new results, which can be evaluated to reveal answers." width="80%" style="display: block; margin:auto;" />
+                            <figcaption>
+                                <p><strong>Figure 4.7:</strong> Diagram showing how the results from two different data analysis inverstications can be combined to derive further, possibly more interesting results.
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <p>The possibility and potential benefit of synthetically combining two or more sets of findings from different prior investigations mean that the branching tree pictures shown in Figure 4.6 is still a simplification of the ways in
+                            which one can progress towards answering questions and revealing insights. Hence, we should really imagine an even more complex picture in which, as well as branching, there may also be convergence and merger between different
+                            paths of investigation.
+                        </p>
+                        <h2 id="data-mining">Data mining<a class="headerlink" href="#data-mining" title="Permanent link">&para;</a></h2>
+                        <p>Although we shall not be covering data mining in any detail in this module, now is a good time to briefly introduce the idea, since it relates to the idea of synthesis.</p>
+                        <p>Data mining is a kind of investigation where we try to use systematic means – in the form of algorithms - to automatically explore patterns and connections that exist within diverse data values and data sources, in order to identify
+                            relationships of which we had no prior awareness. Hence, it attempts to provide a kind of automatic synthesis, which could potentially give insights that go beyond prior expectations and are not necessarily answers to previously
+                            posed questions. To achieve this, it employs techniques that process data in a very general way, looking for general kinds of correspondence, relationships or structure. So data mining can be regarded as a kind of unsupervised
+                            machine learning.</p>
+                        <div class="admonition abstract">
+                            <p class="admonition-title">Exercise</p>
+                            <p>Research the concept of data mining and gain a basic knowledge of one or more types of algorithm that are used to implement it.</p>
+                        </div>
+                        <div class="admonition info">
+                            <p class="admonition-title">Aside</p>
+                            <p>Inductive Logic Programming (ILP) is a logic-based approach to knowledge acquisition, that bears a similarity to data mining. It is essentially a method of automatically extracting logical relationships from data, which can
+                                be used to identify rules that are satisfied by the information contained in that data and can potentially be applied to reason about and draw conclusions from other sets of data, which have similar content.
+                                <p>
+                                    Work involving the use of ILP was conducted at Leeds some time ago, as part of the CogVis Project on interpreting video data. An interesting paper entitled
+                                    <a href="https://doi.org/10.1016/j.artint.2005.04.006" target="_blank">Protocols from perceptual observations</a> presents an ILP-based method for identifying the rules a game (such as simple card games) from videos
+                                    of people playing the game.</p>
+                        </div>
+                        <h2 id="data-synthesis-and-synthetic-data">Data synthesis and synthetic data<a class="headerlink" href="#data-synthesis-and-synthetic-data" title="Permanent link">&para;</a></h2>
+                        <p>In fact, in the field of data science, the term data synthesis <strong>does not</strong> mean comparing or bringing together different kinds of data, but something completely different. It actually means creating artificial data
+                            in order to use this to develop and test our software.</p>
+                        <div class="admonition question">
+                            <p class="admonition-title">Question</p>
+                            <p>Why would we want to create artificial data?</p>
+                            <p>How would we create artificial data?</p>
+                        </div>
+                        <details class="question">
+                            <summary>Answer</summary>
+                            <p>The main reason that we might want do this is that we may not have access to sufficient quantities of actual data to carry out this development and testing.</p>
+                            <p>In some cases, synthetic data may be based on some actual data, but in most cases it is created directly by an algorithm that produces data that we believe is similar to real data that we might find. Typically the algorithm
+                                would involve randomisation or simulation or both. The algorithm builds in certain frequencies, dependencies and conditions that we know to hold in the real case. This is why we believe it is similar to real data.</p>
+                            <p><strong>An Example of Data Synthesis:</strong></p>
+                            <p>Suppose we want to develop software that can identify places on the Earth's surface where we are likely to find diamonds – and that would certainly be useful. From theories of minerals and geology, we may know enough about
+                                the formation of diamonds and the way that the Earth's surface can change over time to be able to write a simulation program that would generate a semi-random example of a landscape, along with locations of different minerals
+                                that have been created by geological processes. To use this artificial data to test this software, we can hide any information that we would not have access to if it were real (i.e. the locations of the diamonds) but keep
+                                the information we would easily be able to obtain (such as the land surface elevation and the regions occupied by different types of rock). Then we use the synthetic land surface and rock types data as test input to develop
+                                our diamond finding software. And of course, after we have run the software we can check how well the regions it identifies correspond to the locations of the diamonds.</p>
+                            <p>Of course, there can be problems with using synthetic data. It may not actually be similar to real data. The assumptions we made or the data creation algorithm may be incorrect. We may have built in some correlation that does
+                                not exist in real life. Hence, in most cases it is important to also do some reality check testing with real data. But this may only require a small amount of real data compared with the amount we need for developing our
+                                system (especially if the system is using some kind of machine learning).</p>
+                        </details>
+                        <h2 id="lesson-complete">Lesson complete<a class="headerlink" href="#lesson-complete" title="Permanent link">&para;</a></h2>
+                        <p>You should now have a better understanding of pipeline architecture and how it applies to data analysis, and the different ways in which data analysis can progress in the light of evaluation of results. In the next lesson, you’ll
+                            explore how to acquire data from the internet.</p>
+                        <p><strong>Select the next button to continue to the next lesson.</strong></p>
+
+
+                    </article>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="md-footer">
+
+            <nav class="md-footer__inner md-grid" aria-label="Footer">
+
+
+                <a href="../../unit3/3_07_unit-references/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 7. Unit references" rel="prev">
+                    <div class="md-footer__button md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+                    </div>
+                    <div class="md-footer__title">
+                        <div class="md-ellipsis">
+                            <span class="md-footer__direction">
+                Previous
+              </span> 7. Unit references
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a href="../4_02_data-acquisition/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Data acquisition" rel="next">
+                    <div class="md-footer__title">
+                        <div class="md-ellipsis">
+                            <span class="md-footer__direction">
+                Next
+              </span> 2. Data acquisition
+                        </div>
+                    </div>
+                    <div class="md-footer__button md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+                    </div>
+                </a>
+
+            </nav>
+
+            <div class="md-footer-meta md-typeset">
+                <div class="md-footer-meta__inner md-grid">
+                    <div class="md-copyright">
+
+                        <div class="md-copyright__highlight">
+                            Copyright © Digital Education Service | University of Leeds
+                        </div>
+
+
+                        Made with
+                        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+        <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">
+        {
+            "base": "../../..",
+            "features": ["navigation.tabs"],
+            "translations": {
+                "clipboard.copy": "Copy to clipboard",
+                "clipboard.copied": "Copied to clipboard",
+                "search.config.lang": "en",
+                "search.config.pipeline": "trimmer, stopWordFilter",
+                "search.config.separator": "[\\s\\-]+",
+                "search.placeholder": "Search",
+                "search.result.placeholder": "Type to start searching",
+                "search.result.none": "No matching documents",
+                "search.result.one": "1 matching document",
+                "search.result.other": "# matching documents",
+                "search.result.more.one": "1 more on this page",
+                "search.result.more.other": "# more on this page",
+                "search.result.term.missing": "Missing",
+                "select.version.title": "Select version"
+            },
+            "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"
+        }
+    </script>
+
+
+    <script src="../../../assets/javascripts/bundle.467223ff.min.js"></script>
+
+    <script src="../../../javascript/tablecontentsoverride.js"></script>
+
+    <script src="../../../javascript/config.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+</body>
+
+</html>
